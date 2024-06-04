@@ -1,0 +1,26 @@
+/* src/components/EventCard.css */
+.event-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    background-color: #fff;
+  }
+  
+  .event-name {
+    font-size: 1.5em;
+    margin-bottom: 8px;
+  }
+  
+  .event-date,
+  .event-location,
+  .event-description {
+    margin: 4px 0;
+  }
+  
+  .event-description {
+    color: #555;
+  }
+  
