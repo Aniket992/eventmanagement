@@ -1,16 +1,24 @@
-.cardsContainer {
-    text-align: center;
-    padding: 20px;
-    background-color: #f5f5f5;
-}
 
-h1 {
-    margin-bottom: 20px;
+.robot{
+    width: 65px;
+    height: 55px;
+    animation: pass 2s steps(5) infinite,
+       forward 8s linear infinite;
 }
-
-.event-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
+@keyframes pass
+{
+    0% {
+        background-position: 0px;
+    }
+    100%{
+        background-position: 1380px;
+    }
+}
+@keyframes forward{
+     0%{
+        transform: translateX(-100px);
+     }
+     100%{
+        transform: translateX(1300px);
+     }
 }

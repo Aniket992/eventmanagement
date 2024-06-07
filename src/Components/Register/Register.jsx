@@ -1,11 +1,9 @@
-// src/pages/RegistrationForm.jsx
 import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import './Register.css';
 
 const Register = () => {
     const location = useLocation();
-    const navigate = useNavigate();
     const { event } = location.state || {};
     const [formData, setFormData] = useState({
         name: '',
@@ -28,13 +26,51 @@ const Register = () => {
         });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Pass the fee and form data to the payment page
-        navigate('/Payment', { state: { totalFee, formData, event } });
-    };
-
     const totalFee = formData.accommodation ? registrationFee + accommodationFee : registrationFee;
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            // Example API endpoint for payment
+            const apiUrl = 'https://your-server.com/api/payment';
+
+            // Example payload for payment request
+            const payload = {
+                amount: totalFee,
+                formData: formData,
+                event: event,
+                // Add any other necessary data for payment
+            };
+
+            // Make POST request to server API
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Add any required headers
+                },
+                body: JSON.stringify(payload),
+            });
+
+            // Handle response from server
+            if (response.ok) {
+                const { success, success_url, cancel_url } = await response.json(); // Assuming server returns success and URLs
+
+                if (success) {
+                    window.location.href = success_url; // Redirect to success URL
+                } else {
+                    window.location.href = cancel_url; // Redirect to cancel URL
+                }
+            } else {
+                console.error('Payment API call failed:', response.statusText);
+                // Handle error scenario
+            }
+        } catch (error) {
+            console.error('Error in payment API call:', error.message);
+            // Handle any unexpected errors
+        }
+    };
 
     return (
         <div className="registration-form-container">
