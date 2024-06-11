@@ -5,8 +5,9 @@ export const content = [
 export const theme = {
   extend: {
     fontFamily: {
-      avenger: ['Avenger', 'sans-serif'],
-    },
+      avenger: ['Avenger'],
+    }
+  
     
   },
 };

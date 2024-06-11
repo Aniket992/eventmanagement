@@ -1,32 +1,16 @@
-/* src/components/Footer.css */
 
-.footer {
-    background-color: #282c34;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-  }
+
+
   
-  .footer .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .footer-content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 1200px;
-    margin-bottom: 20px;
-  }
+ 
   
   .footer-section {
     flex: 1;
-    padding: 10px;
+    /* background-color: red; */
   }
   
   .footer-section h3 {
+    /* background-color: yellow; */
     margin-bottom: 10px;
   }
   

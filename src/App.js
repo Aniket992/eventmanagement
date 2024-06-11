@@ -1,14 +1,15 @@
-import "./App.css";
-import Home from "./Pages/Home/Home";
-import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
-import Registration from "./Pages/Registration/Registration";
-import Payment from "./Pages/Payment/Payment";
-import Contact from "./Pages/Contact/Contact";
-import About from "./Pages/About/About";
-import Events from "./Pages/Events/Events";
-import Login from "./Components/Login/Login";
-import Dashboard from "./Pages/Dashboard/Dashboard";
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Home from './Pages/Home/Home';
+import Registration from './Pages/Registration/Registration';
+import Payment from './Pages/Payment/Payment';
+import Contact from './Pages/Contact/Contact';
+import About from './Pages/About/About';
+import Events from './Pages/Events/Events';
+import Login from './Components/Login/Login';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import CreateEventForm from './Components/CreateEventForm';
+import DashboardLayout from './Components/Layouts/DashboardLayouts';
 
 function App() {
   const [adminAuthenticated, setAdminAuthenticated] = useState(false);
@@ -16,25 +17,22 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/Payment" element={<Payment />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/registration" element={<Registration />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/" element={<Home />}></Route>
-        <Route
-                    path="/dashboard"
-                    element={
-                        adminAuthenticated ? (
-                            <Dashboard/>
-                        ) : (
-                            <Navigate to="/login" />
-                        )
-                    }
-                />        <Route
-          path="/login"
-          element={<Login setAdminAuthenticated={setAdminAuthenticated} />}
-        />{" "}
-        <Route path="/Events" element={<Events />}></Route>
-        <Route path="/Registration" element={<Registration />}></Route>
+        <Route path="/about" element={<About />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/adminlogin" element={<Login setAdminAuthenticated={setAdminAuthenticated} />} />
+        <Route path="/admin/dashboard" element={<DashboardLayout setAdminAuthenticated={setAdminAuthenticated} />}>
+          <Route index element={<Dashboard isAdminAuthenticated={adminAuthenticated} />} />
+          <Route path="createEvent" element={<CreateEventForm />} />
+          <Route path="update-contact" element={<Contact />} />
+          <Route path="update-About" element={<About />} />
+          <Route path="events" element={<Events />} />
+
+          {/* Add other admin routes here */}
+        </Route>
       </Routes>
     </BrowserRouter>
   );

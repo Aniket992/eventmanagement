@@ -1,20 +1,32 @@
-/* src/pages/AboutPage.css */
 .about-page-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.about-page-container h1 {
-    text-align: center;
-    margin-bottom: 20px;
+.rotating-background {
+    content: '';
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, rgb(239, 6, 6) 0%, rgb(74, 244, 247) 50%, rgb(20, 5, 93) 50%, rgb(221, 180, 184) 100%);
+    animation: rotate 8s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+ 
 }
 
 .about-content {
     line-height: 1.6;
+    position: relative;
 }
 
 .about-content p {
@@ -28,4 +40,25 @@
 
 .about-content a:hover {
     text-decoration: underline;
+}
+
+h1 {
+    position: relative;
+    overflow: hidden;
+}
+.jarvis-bg {
+    animation: zoomInOut 10s backwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes zoomInOut {
+    0% {
+        transform: scaleY(2);
+    }
+    50% {
+        transform: scaleX(1.1);
+    }
+    100% {
+        transform: scaleZ(1);
+    }
 }
