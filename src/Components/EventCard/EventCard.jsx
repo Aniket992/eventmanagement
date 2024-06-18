@@ -26,15 +26,12 @@ const EventCard = ({ event }) => {
       <div
         class="flip-card tracking-wider"
         onClick={handleCardClick}
-        // style={{
-        //   textShadow:
-        //     "2px 2px 0 #000, 2px 2px 0 #000, 2px 2px 0 #000, 2px 2px 0 #000",
-        // }}
+       
       >
         <div class="flip-card-front text-center ">
           <div class="inner flex flex-col justify-between">
-            <div className=" ">
-              <img src="https://i.imgur.com/C9DWUDi.png" class="icon" />
+            <div className=" p-5 w-24 ">
+              <img src="https://i.imgur.com/C9DWUDi.png" />
             </div>
             <div className=" font-avenger text-yellow-400 rounded-xl bg-black bg-opacity-20 text-4xl"
             
@@ -62,12 +59,12 @@ const EventCard = ({ event }) => {
             </div>
           </div>
         </div>
-        <div class="flip-card-back text-center ">
-          <div class="inner flex flex-col justify-between">
-            <div>
-              <img src=" https://i.imgur.com/wROMxVv.png" class="icon" />
+        <div class="flip-card-back text-center  ">
+          <div class="inner h-full  overflow-hidden flex flex-col justify-between p-1 ">
+            <div className=" p-2 w-20 ">
+              <img src=" https://i.imgur.com/wROMxVv.png"  />
             </div>
-            <div className="bg-black font-bold text-lg text-orange-500 rounded-xl p-5 bg-opacity-50">
+            <div className="bg-black  font-bold text-lg text-orange-500 rounded-xl p-2 bg-opacity-50">
             <p className="font-bold text-lg text-lime-400">Venue:</p>
               <p>{event.location.landmark}</p>
             <p>{event.location.city}, </p>
@@ -75,13 +72,13 @@ const EventCard = ({ event }) => {
             <p> {event.location.country}</p>
             </div>
            
-            <div className="bg-black font-semibold text-orange-500 rounded-xl p-5 bg-opacity-50">
+            <div className="bg-black w-full font-semibold text-orange-500 rounded-xl p-2 bg-opacity-50">
               <h4 className="font-bold text-lg text-lime-400">Contact:</h4>
               {event.contact.map((contact, index) => (
                 <div key={index} className="text-lg font-serif">
                   <p>Name: {contact.name}</p>
-                  <p className="font-normal">Phone: {contact.phone}</p>
-                  <p >Click to view details</p>
+                  <p className="font-normal ">Phone: {contact.phone}</p>
+                  <p className="text-blue-700" >Click to view details</p>
                 </div>
               ))}
             </div>

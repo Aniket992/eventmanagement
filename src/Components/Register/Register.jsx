@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Register.css';
+import EventDetails from '../EventDetails/Eventdetails.jsx';
 
 const Register = () => {
     const location = useLocation();
@@ -73,25 +74,26 @@ const Register = () => {
     };
 
     return (
-        <div className="registration-form-container">
-            <h1>Registration Page</h1>
-            {event ? (
-                <div>
-                    <h2>{event.name}</h2>
-                    {/* <p>{event.date}</p> */}
-                    {/* <p>{event.location}</p> */}
-                    <p>{event.description}</p>
+        <>
+            <div className='flex'>
+                <div className='w-1/2 text-center '>
+                    <EventDetails event={event} />
+                </div>
+                <div className="registration-form-container w-1/2 border-gray-600 bg-gray-500">
+                    <h1>Registration</h1>
                     <form onSubmit={handleSubmit}>
-                        <div>
-                            <label>Name:</label>
-                            <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+                        <div className='flex justify-evenly'>
+                            <div>
+                                <label>Student Name:</label>
+                                <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+                            </div>
+                            <div>
+                                <label>Class:</label>
+                                <input type="text" name="class" value={formData.class} onChange={handleChange} required />
+                            </div>
                         </div>
                         <div>
-                            <label>Class:</label>
-                            <input type="text" name="class" value={formData.class} onChange={handleChange} required />
-                        </div>
-                        <div>
-                            <label>School:</label>
+                            <label>School Name:</label>
                             <input type="text" name="school" value={formData.school} onChange={handleChange} required />
                         </div>
                         <div>
@@ -118,10 +120,8 @@ const Register = () => {
                         <button type="submit">Pay</button>
                     </form>
                 </div>
-            ) : (
-                <p>No event details provided.</p>
-            )}
-        </div>
+            </div>
+        </>
     );
 };
 

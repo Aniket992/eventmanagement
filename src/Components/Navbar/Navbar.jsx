@@ -3,7 +3,7 @@ import './Navbar.css'; // Import CSS file for styling
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
+    <nav className="navbar bg-black">
       <div className="navbar-container">
       <a href="/" className="navbar-logo font-avenger">TechEvents</a>
         <div className="menu-icon">

@@ -29,13 +29,19 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${homebg})` }}>
+    <div className="bg-cover bg-center bg-fixed " style={{ backgroundImage: `url(${homebg})` }}>
       <Navbar />
       <div className=" p-20 bg-#f5f5f5">
-        <h1 className="text-4xl  font-extrabold  underline mb-14  font-avenger tracking-widest text-amber-400"
+        <div className="flex justify-between">
+        <h1 className="text-4xl w-1/2 font-extrabold  underline mb-14  font-avenger tracking-widest text-amber-400"
                 style={{ textShadow: '2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}
 
         >Upcoming Tech Events</h1>
+        <h1 className="text-2xl hover:bg-blue-700 bg-blue-500 p-4 rounded-xl cursor-pointer font-extrabold  underline mb-14  font-avenger tracking-widest text-amber-400"
+                style={{ textShadow: '2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}
+
+        >Event Gallery</h1>
+        </div>
 
         {loading ? (
           <p>Loading events...</p>
