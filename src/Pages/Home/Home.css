@@ -22,3 +22,19 @@
         transform: translateX(1300px);
      }
 }
+/* .Home{
+    background: rgb(165,0,0);
+    background: linear-gradient(90deg, rgba(165,0,0,1) 0%, rgba(50,104,189,1) 20%, rgba(0,153,31,1) 40%, rgba(153,153,153,1) 60%, rgba(70,0,97,1) 80%);
+
+} */
+.text-3d {
+    position: relative;
+    color: #fff; /* Text color */
+    font-weight: bold;
+    text-shadow: 
+      1px 1px 2px rgba(255, 255, 255, 0.1),
+      2px 2px 4px rgba(255, 255, 255, 0.2),
+      3px 3px 6px rgba(255, 255, 255, 0.3),
+      4px 4px 8px rgba(255, 255, 255, 0.4),
+      5px 5px 10px rgba(255, 255, 255, 0.5); /* Adjust the shadow offset and color for more depth */
+  }

@@ -1,0 +1,21 @@
+@keyframes moveForward {
+    0% {
+      transform: translateX(0) rotate(0deg);
+    }
+    50% {
+              transform: translateX(460%) rotate(360deg); /* Return to the start point and complete the rotation */
+
+    }
+    100% {
+      transform: translateX(0) rotate(-360deg); /* Return to the start point and complete the rotation */
+    }
+  }
+  
+  .rotate-move-animation {
+    animation: moveForward 5s linear infinite;
+  }
+  
+  .rotate-move-animation:hover {
+    animation-play-state: paused;
+  }
+  

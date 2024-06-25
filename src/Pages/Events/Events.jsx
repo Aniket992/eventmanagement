@@ -7,7 +7,9 @@ const Events = () => {
 
   return (
     <>
-    <div className="bg-cover bg-center " style={{backgroundImage: `url(${eventbg})`}}>
+    <div className="bg-cover bg-center " 
+    // style={{backgroundImage: `url(${eventbg})`}}
+    >
 
     <Navbar/>
     <div className="text-center m-10">

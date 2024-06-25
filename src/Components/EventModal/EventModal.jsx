@@ -4,10 +4,10 @@ import "./EventModal.css";
 import jarvis from "../../Assets/jarvis.webp";
 const EventModal = ({ event, onClose, onApply }) => {
   return (
-    <div className="event-modal-overlay fixed top-0 left-0 bottom-0 right-0 flex bg-black justify-center items-center z-50 bg-opacity-50">
+    <div className="event-modal-overlay fixed top-0 left-0 bottom-0 right-0 flex bg-black justify-center items-center z-50 bg-opacity-50 text-center">
       <div
-        className="event-modal h-5/6  overflow-auto scroll-smooth w-3/4 p-10 rounded-xl text-blue-500 font-semibold  bg-cover text-center bg-center bg-fixed"
-        style={{ backgroundImage: `url(${jarvis})` }}
+        className="event-modal h-5/6  overflow-auto scroll-smooth w-3/4 p-10 rounded-xl text-blue-500 bg-black  font-semibold  bg-cover text-center bg-center bg-fixed"
+        // style={{ backgroundImage: `url(${jarvis})` }}
       >
         <h2 className=" font-bold font-avenger text-4xl tracking-wider text-amber-400  mb-2">{event.eventName}</h2>
         <p className=" mb-2 text-xl text-blue-500  bg-black font-semibold">{event.description}</p>
