@@ -1,40 +1,58 @@
-
-.robot{
-    width: 65px;
-    height: 55px;
-    animation: pass 2s steps(5) infinite,
-       forward 8s linear infinite;
-}
-@keyframes pass
-{
-    0% {
-        background-position: 0px;
-    }
-    100%{
-        background-position: 1380px;
-    }
-}
-@keyframes forward{
-     0%{
-        transform: translateX(-100px);
-     }
-     100%{
-        transform: translateX(1300px);
-     }
-}
-/* .Home{
-    background: rgb(165,0,0);
-    background: linear-gradient(90deg, rgba(165,0,0,1) 0%, rgba(50,104,189,1) 20%, rgba(0,153,31,1) 40%, rgba(153,153,153,1) 60%, rgba(70,0,97,1) 80%);
-
-} */
-.text-3d {
+.flame-text {
     position: relative;
-    color: #fff; /* Text color */
-    font-weight: bold;
-    text-shadow: 
-      1px 1px 2px rgba(255, 255, 255, 0.1),
-      2px 2px 4px rgba(255, 255, 255, 0.2),
-      3px 3px 6px rgba(255, 255, 255, 0.3),
-      4px 4px 8px rgba(255, 255, 255, 0.4),
-      5px 5px 10px rgba(255, 255, 255, 0.5); /* Adjust the shadow offset and color for more depth */
+    color: #ff4500; /* Initial flame color */
+    animation: texting 5s forwards, colorChange 5s infinite;
+}
+
+
+
+@keyframes texting {
+    0% {
+        transform: translateZ(0) translateY(0px) rotate(0deg);
+    }
+    100% {
+        transform: translateZ(500px) translateY(10px) rotate(360deg);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        color: #88f739;
+    }
+    50% {
+        color: #f3f63d;
+    }
+    100% {
+        color: #2be921;
+    }
+}
+.gate-container {
+    display: flex;
+    overflow: hidden;
+    position: relative;
   }
+  
+  .gate-left, .gate-right {
+    height: 100%;
+    position: absolute;
+    transition: width 3s ease-in-out;
+  }
+  
+  .gate-left {
+    left: 0;
+    width: 50%;
+  }
+  
+  .gate-right {
+    right: 0;
+    width: 50%;
+  }
+  
+  .gate-container:hover .gate-left {
+    width: 0;
+  }
+  
+  .gate-container:hover .gate-right {
+    width: 0;
+  }
+  

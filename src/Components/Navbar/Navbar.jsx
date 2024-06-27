@@ -9,13 +9,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar h-14 flex justify-center border-b-2 items-center bg-gradient-to-r from-red-700 via-blue-600 to-green-600 text-white">
+    <nav className="navbar h-14 flex justify-center border-b-2 items-center bg-gradient-to-r from-red-700 via-blue-600 to-green-600  text-white ">
       <div className="navbar-container flex justify-between h-fit w-full max-w-6xl px-5">
-        <a href="/" className="self-center font-avenger text-2xl">TechEvents</a>
+        <a href="/" className="self-center font-avenger text-2xl  ">TechSprint</a>
         <div className="blocks sm:hidden" onClick={handleMenuToggle}>
           <i className="fas fa-bars text-2xl"></i>
         </div>
-        <ul className="hidden sm:flex sm:items-center text-xl">
+        <ul className="hidden sm:flex sm:items-center text-xl ">
           <li className="nav-item">
             <a href="/" className="nav-links px-3 py-2">Home</a>
           </li>
