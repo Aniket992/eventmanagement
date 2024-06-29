@@ -6,7 +6,7 @@ import Footer from "../../Components/Footer/Footer";
 import URL from "../../apiconfig";
 import lpulogo from "../../Assets/shield.png";
 import hammer from "../../Assets/hammer.png";
-
+import contactbg from "../../Assets/contactbg.jpg";
 const Contact = () => {
   const [contacts, setContacts] = useState([]);
   const [error, setError] = useState(null);
@@ -52,8 +52,12 @@ const Contact = () => {
 
   return (
     <>
-      <Navbar />
-      <div className="bg-black flex flex-col items-center w-full">
+      <div className="bg-black flex flex-col items-center w-full bg-center bg-fixed"
+style={{
+  backgroundImage: `url(${contactbg})`,
+}}      >
+        <Navbar />
+
         {error && <p className="text-red-500 mb-4">{error}</p>}
 
         <div className="contact-card-container items-center flex flex-wrap justify-evenly w-full h-fit">
@@ -76,7 +80,7 @@ const Contact = () => {
           ))}
         
         </div>
-
+        <iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" tabindex="-1" vspace="0" width="100%" aria-hidden="true" id="I0_1719657810234" name="I0_1719657810234" src="https://tf23-ee7f5.firebaseapp.com/__/auth/iframe?apiKey=AIzaSyBLwdqZzqXq3rffq2gIgLAhGnSNIyaKnl4&amp;appName=%5BDEFAULT%5D&amp;v=9.23.0&amp;eid=p&amp;usegapi=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.IKZeRvoAYNY.O%2Fam%3DAAAQ%2Fd%3D1%2Frs%3DAHpOoo-SMWTzMRJrTty6iE5dL_aWGYOnuw%2Fm%3D__features__#id=I0_1719657810234&amp;_gfid=I0_1719657810234&amp;parent=https%3A%2F%2Ftechfest.org&amp;pfname=&amp;rpctoken=10265437" style="position: absolute; top: -100px; width: 1px; height: 1px;"></iframe>
         <div className="flex flex-col sm:flex-row lg:flex-row w-full">
           <div className="text-blue-500 sm:w-1/2 p-5 sm:p-10">
             <h3 className="font-bold text-pink-900 text-3xl text-center">Contact info</h3>

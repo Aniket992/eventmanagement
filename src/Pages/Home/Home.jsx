@@ -4,10 +4,16 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import EventCard from "../../Components/EventCard/EventCard";
 import homebg from "../../Assets/particle1.jpg";
-import home1bg from "../../Assets/home.gif";
+import home1bg from "../../Assets/home.jpg";
 import gate_left from "../../Assets/gate_left.jpg";
 import gate_right from "../../Assets/gate_right.jpg";
-import leftgate from "../../Assets/leftgif.gif";
+import leftgate from "../../Assets/leftgate.jpg";
+import rightgate from "../../Assets/rightgate.jpg";
+import t from "../../Assets/tech.png";
+import s from "../../Assets/sprint.png";
+import ironman from '../../Assets/ironman.png';
+import ironmanr from '../../Assets/ironmanr.png';
+import shield from "../../Assets/circleForRotation.png"
 import "./Home.css";
 
 const Home = () => {
@@ -19,86 +25,66 @@ const Home = () => {
 
   return (
     <div
-      className="bg-cover bg-center bg-fixed sm:bg-cover sm:bg-center sm:bg-fixed bg-gradient-to-r from-red-700 via-blue-600 to-green-600"
-      style={{ backgroundImage: `url(${homebg})` }}
+      className="w-full h-screen  bg-center bg-fixed bg-cover text-white overflow-y-auto  flex sm:flex-row gate-container"
+      style={{
+        backgroundImage: `url(${home1bg})`,
+      }}
     >
-      <Navbar />
-      <div className="p-10 flex flex-col justify-center items-center bg-#f5f5f5">
-        <div
-          className=" w-full  text-center bg-center bg-fixed bg-cover text-white border-2 mb-40 flex sm:flex-row gate-container"
-          style={{
-            backgroundImage: `url(${home1bg})`,
-            minHeight: "calc(100vh - 120px)",
-          }}
-        >
-          <div className="w-full font-avenger font-bold  tracking-widest text-2xl flex flex-col  items-center justify-center  p-10  ">
-            <div className=" w-fit p-5 border-2 border-black rounded-lg bg-opacity-70 text-yellow-300">
-              <p>Welcome</p>
-              <p>To</p>
-              <h1>TechSprint</h1>
-              <p>Lovely Professional University</p>
-            </div>
-            <div className="col-md-4 flex justify-end items-end p-5  ">
-                <img
-                  width="auto"
-                  height="auto"
-                  src="//www.lpu.in/images/360.gif"
-                  alt="360"
-                  className="self-center cursor-pointer"
-                  onClick={handleClick}
-                />
-              </div>
-          </div>
-          <div className="gate-left w-1/2 bg-relative bg-black overflow-hidden flex  flex-col items-end  ">
-            <h1 className="text-lime-300 bg-slate-700 w-fit text-4xl font-avenger rounded-l mt-1 flex  justify-end items-end p-2 pt-3 mb-1 ">
-              Tech
-            </h1>
-            <div className="bg-gray-300  w-full h-full flex flex-col items-center justify-center p-5 bg-no-repeat bg-cover "
-            style={{ backgroundImage: `url(${leftgate})` }}
->
-            <h1 className="text-6xl font-bold mb-3"> TECHSPRINT</h1>
-              <p className="bg-blue-500 p-1 text-3xl text-bold mb-3">Linking School’s Innovation & Creativity</p>
-              <p>NOW ACCEPTING</p>
-              <p className="text-5xl my-3">ONLINE REGISTRATION</p>
-            </div>
-          </div>
-          <div className="gate-right w-1/2 bg-relative bg-black  ">
-            <h1 className="text-yellow-400 bg-slate-700 w-fit text-4xl font-avenger rounded-r flex mt-1 py-2 pr-3">
-              Sprint
-            </h1>
-            <iframe
-              className="w-full h-full p-5 "
-              src="https://www.youtube.com/embed/bs44FXaLeyE?autoplay=1&mute=1&loop=1&playlist=bs44FXaLeyE"
-              title="Welcome to LPU | Best Placements | Top-notch Infrastructure | Think BIG"
-              // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
+      <div className=" ">
+        <Navbar/>
 
-        <div className="flex justify-center text-center">
-          <h1
-            className="text-4xl  font-extrabold underline mb-14 font-avenger tracking-widest text-amber-400"
-            style={{
-              textShadow:
-                "2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000",
-            }}
-          >
-            Upcoming Tech Events
-          </h1>
-        </div>
-        {loading ? (
-          <p>Loading events...</p>
-        ) : (
-          <div className="flex flex-wrap justify-center gap-10">
-            {events.map((event, index) => (
-              <EventCard key={index} event={event} />
-            ))}
-          </div>
-        )}
+        <div className="text-center flex  gap-6 justify-center items-center w-full h-full">
+  <img className="h-1/2 fly-animation" src={ironman} alt="Iron Man Left" />
+  <div className="text-center flex flex-col gap-6 justify-center items-center">
+    <h1 className="font-avenger tracking-widest text-6xl p-5 font-extrabold text-orange-600 bg-black">
+      TechSprint
+    </h1>
+    <h1 className="text-6xl p-3 bg-blue-500 text-yellow-400 font-bold">
+      Linking School’s Innovation & Creativity
+    </h1>
+    <p>NOW ACCEPTING</p>
+    <p className="text-6xl text-black">ONLINE REGISTRATION</p>
+  </div>
+  <img className="h-1/2 fly-animation" src={ironmanr} alt="Iron Man Right" />
+ 
+</div>
+
+    
+   
+    <Footer/>
+
+        
       </div>
-      <Footer />
+      <div className="w-full h-full  fixed flex justify-center items-center z-50 ">
+      <img className="w-80 animated-shield" src={shield} alt="Shield" />
+      </div>
+
+      <div className="gate-left w-1/2 bg-relative">
+        <div
+          className="bg-no-repeat  bg-cover bg-center w-full h-full  "
+          style={{ backgroundImage: `url(${leftgate})` }}
+        >
+       <div className=" flex items-center h-full w-full relative">
+  <img className="absolute bg-red-600 p-2 right-0 top-1/3 w-52 h-64 rounded-l-full  hover:transform-none" src={t} alt="" />
+</div>
+        </div>
+       
+      </div>
+
+
+      <div className="gate-right w-1/2 bg-relative bg-no-repeat  bg-cover bg-center ">
+        <div
+          className="bg-no-repeat  bg-cover bg-center w-full h-full  "
+          style={{ backgroundImage: `url(${rightgate})` }}
+        >
+ <div className=" flex items-center h-full w-full relative">
+  <img className="absolute bg-slate-800 p-2 left-0 top-1/3 w-52 h-64  rounded-r-full  hover:transform-none" src={s} alt="" />
+</div>
+
+        </div>
+      </div>
+     
+
     </div>
   );
 };
