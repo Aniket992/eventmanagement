@@ -59,6 +59,167 @@
       transform: rotate(360deg)scale(0);
     }
   }
+  .glowing-border {
+    position: relative;
+    border: 2px solid transparent;
+    border-image: linear-gradient(90deg, violet, blue, violet) 1;
+    animation: glow 2s linear infinite;
+  }
   
-  
+  @keyframes glow {
+    0% {
+      border-image-source: linear-gradient(90deg, violet, blue, violet);
+    }
+    50% {
+      border-image-source: linear-gradient(90deg, blue, violet, blue);
+    }
+    100% {
+      border-image-source: linear-gradient(90deg, violet, blue, violet);
+    }
+  }
+ /* Home.css */
+.lfire, .rfire {
+  transition: transform 0.5s ease-in-out; /* Smooth transition for the sliding effect */
+}
+
+.lfire.slide-left {
+  transform: translateX(-100%);
+}
+
+.rfire.slide-right {
+  transform: translateX(100%);
+}
+
+.tagline.fixed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* Ensure it's on top */
+  text-align: center;
+}
+
+.tagline.scroll {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  z-index: 1;
+}
+/* Home.css */
+.rotate {
+  animation: rotateShield 5s infinite linear; /* Added linear timing function for smooth rotation */
+}
+
+@keyframes rotateShield {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.neon {
+  filter: drop-shadow(0 0 0.5rem #ffffff) drop-shadow(0 0 1rem #3dabde)
+    drop-shadow(0 0 1.5rem #fff) drop-shadow(0 0 2.5rem #d400ff);
+}
+/* Home.css */
+
+/* Keyframes for the arrow up and down animation */
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Keyframes for the circle expansion animation */
+@keyframes circleExpand {
+  0% {
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+  }
+}
+
+/* Styles for the arrow indicator container */
+.arrow-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Styles for the arrow image */
+.arrow-container img {
+  animation: arrowBounce 2s infinite;
+}
+
+/* Styles for the expanding circles */
+.circle {
+  position: absolute;
+  border: 2px solid white;
+  border-radius: 50%;
+  animation: circleExpand 2s infinite;
+}
+
+.circle:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.circle:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.circle:nth-child(3) {
+  animation-delay: 1s;
+}
+
+/* .loadbody {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(
+    circle,
+    rgba(73, 22, 94, 1) 100%,
+    rgba(0, 0, 0, 1) 100%
+  );
+} */
+/* .iconlogo {
+  color: white;
+  font-size: 15rem !important;
+} */
+/* .neon {
+  filter: drop-shadow(0 0 0.5rem #fff) drop-shadow(0 0 1rem #fff)
+    drop-shadow(0 0 1.5rem #fff) drop-shadow(0 0 2.5rem #d400ff)
+    drop-shadow(0 0 4rem #d400ff) drop-shadow(0 0 5.5rem #d400ff)
+    drop-shadow(0 0 6rem #d400ff) drop-shadow(0 0 9.5rem #d400ff);
+  animation: glowlogo 1s forwards;
+}
+@keyframes glowlogo {
+  to {
+    filter: drop-shadow(0 0 0.5rem #fff) drop-shadow(0 0 1rem #fff)
+      drop-shadow(0 0 1.5rem #fff) drop-shadow(0 0 2.5rem #d400ff)
+      drop-shadow(0 0 5rem #d400ff) drop-shadow(0 0 5.5rem #d400ff)
+      drop-shadow(0 0 6rem #d400ff);
+  }
+} */
+
   

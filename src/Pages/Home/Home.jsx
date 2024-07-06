@@ -3,88 +3,126 @@ import { EventsContext } from "../../../src/Components/EventsContext";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import EventCard from "../../Components/EventCard/EventCard";
-import homebg from "../../Assets/particle1.jpg";
-import home1bg from "../../Assets/home.jpg";
-import gate_left from "../../Assets/gate_left.jpg";
-import gate_right from "../../Assets/gate_right.jpg";
-import leftgate from "../../Assets/leftgate.jpg";
-import rightgate from "../../Assets/rightgate.jpg";
-import t from "../../Assets/tech.png";
-import s from "../../Assets/sprint.png";
-import ironman from '../../Assets/ironman.png';
-import ironmanr from '../../Assets/ironmanr.png';
-import shield from "../../Assets/circleForRotation.png"
+import ironman from "../../Assets/ironman.png";
+import ironmanr from "../../Assets/ironmanr.png";
+import fire from "../../Assets/fire.jpg";
+import downArrow from "../../Assets/arrow-down.png";
+import circleForRotation from "../../Assets/circleForRotation.png";
+import logo from "../../Assets/techSprint.png";
+
 import "./Home.css";
 
 const Home = () => {
   const { events, loading } = useContext(EventsContext);
 
-  const handleClick = () => {
-    window.open("https://iviewd.com/lpu2/", "_blank");
+  const scrollToNextSection = () => {
+    const nextSection = document.getElementById("next-section");
+    nextSection.scrollIntoView({ behavior: "smooth" });
   };
-
+  const eventSection = () => {
+    const eventSection = document.getElementById("eventSection");
+    eventSection.scrollIntoView({ behavior: "smooth" });
+  };
+ 
   return (
     <div
-      className="w-full h-screen  bg-center bg-fixed bg-cover text-white overflow-y-auto  flex sm:flex-row gate-container"
-      style={{
-        backgroundImage: `url(${home1bg})`,
-      }}
+      className="w-full h-full flex flex-col bg-center bg-black bg-fixed bg-cover text-white"
+      style={{ backgroundImage: `url(${fire})` }}
     >
-      <div className=" ">
-        <Navbar/>
+      <div className="flex flex-col h-full   ">
+        <Navbar />
 
-        <div className="text-center flex  gap-6 justify-center items-center w-full h-full">
-  <img className="h-1/2 fly-animation" src={ironman} alt="Iron Man Left" />
-  <div className="text-center flex flex-col gap-6 justify-center items-center">
-    <h1 className="font-avenger tracking-widest text-6xl p-5 font-extrabold text-orange-600 bg-black">
-      TechSprint
-    </h1>
-    <h1 className="text-6xl p-3 bg-blue-500 text-yellow-400 font-bold">
-      Linking School’s Innovation & Creativity
-    </h1>
-    <p>NOW ACCEPTING</p>
-    <p className="text-6xl text-black">ONLINE REGISTRATION</p>
-  </div>
-  <img className="h-1/2 fly-animation" src={ironmanr} alt="Iron Man Right" />
- 
-</div>
+        <div className="flex flex-col min-h-screen h-full justify-evenly items-center   ">
+          <div className=" hidden  sm:flex justify-evenly    zoom  ">
+            <img
+              className="h-40   rotate  hover:transform-none"
+              src={circleForRotation}
+              alt=""
+            />
+          </div>
+          <div className={`   w-full  sm:flex justify-center text-center  gap-6`}>
+            <div className=" flex justify-center">
 
-    
-   
-    <Footer/>
+            <img
+            className="sm:hidden max-h-44 w-2/3"
+              src={logo}
+            
+              alt=""
+            />
+                        </div>
 
+            <img
+              className="hidden sm:flex fly-animation h-56"
+              src={ironman}
+              alt="Iron Man Left"
+            />
+            <h1 className=" zoom  h-fit  font-avengerd p-2 leading-relaxed  rounded-xl text-yellow-400 text-6xl">
+              From Vision to Reality: The Avengers Way
+            </h1>
+            <img
+              className=" hidden sm:flex h-56 fly-animation"
+              src={ironmanr}
+              alt="Iron Man Right"
+            />
+          </div>
         
-      </div>
-      <div className="w-full h-full  fixed flex justify-center items-center z-50 ">
-      <img className="w-80 animated-shield" src={shield} alt="Shield" />
-      </div>
-
-      <div className="gate-left w-1/2 bg-relative">
-        <div
-          className="bg-no-repeat  bg-cover bg-center w-full h-full  "
-          style={{ backgroundImage: `url(${leftgate})` }}
-        >
-       <div className=" flex items-center h-full w-full relative">
-  <img className="absolute bg-red-600 p-2 right-0 top-1/3 w-52 h-64 rounded-l-full  hover:transform-none" src={t} alt="" />
-</div>
+          <div className="hidden justify-center items-end sm:flex">
+            <div className="arrow-container " onClick={scrollToNextSection}>
+              <div className="circle"></div>
+              <div className="circle"></div>
+              <div className="circle"></div>
+              <img className="w-20 h-20" src={downArrow} alt="Down Arrow" />
+            </div>
+          </div>
         </div>
-       
-      </div>
 
-
-      <div className="gate-right w-1/2 bg-relative bg-no-repeat  bg-cover bg-center ">
         <div
-          className="bg-no-repeat  bg-cover bg-center w-full h-full  "
-          style={{ backgroundImage: `url(${rightgate})` }}
+          id="next-section"
+          className="text-center min-h-screen p-10 flex flex-col gap-6 justify-center items-center "
         >
- <div className=" flex items-center h-full w-full relative">
-  <img className="absolute bg-slate-800 p-2 left-0 top-1/3 w-52 h-64  rounded-r-full  hover:transform-none" src={s} alt="" />
-</div>
-
+          <h1 className="font-avengerd tracking-widest text-6xl p-5 font-extrabold text-orange-500">
+            TechSprint
+          </h1>
+          <h1 className="text-6xl p-3 font-avenger tracking-widest  text-yellow-400 font-bold">
+            Linking School’s Innovation & Creativity
+          </h1>
+          <p className="text-blue-500 font-bold text-xl">NOW ACCEPTING</p>
+          <p className="sm:text-6xl text-3xl text-green-500 font-bold font-serif">
+            ONLINE REGISTRATION
+          </p>
+          <button
+            className="tracking-widest neon bg-orange-400 text-black font-extrabold text-2xl px-5 py-2 rounded-2xl hover:scale-x-105 font-avengerd border-4 border-violet-700"
+            onClick={eventSection}
+          >
+            Events
+          </button>
+          <div className="text-center flex justify-center  w-full   ">
+            <p className="w-full  glowing-border font-avenger tracking-widest text-yellow-300 bg-black bg-opacity-60 p-5  text-2xl">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+              magni facere corrupti ut nam cum odio suscipit explicabo
+              cupiditate voluptate. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Vero fuga omnis minima esse, atque debitis
+              doloribus ratione magni veniam quisquam quas. Impedit sed
+              praesentium, commodi enim ea minima maiores consequatur suscipit
+              animi quas quasi odio sequi voluptates totam nulla aut maxime est
+              incidunt laboriosam minus corrupti ab. Illo, eveniet porro?
+            </p>
+          </div>
         </div>
-      </div>
-     
 
+        <div id="eventSection" className="mb-20 ">
+          {loading ? (
+            <p>Loading events...</p>
+          ) : (
+            <div className="flex flex-wrap justify-center gap-10">
+              {events.map((event, index) => (
+                <EventCard key={index} event={event} />
+              ))}
+            </div>
+          )}
+        </div>
+        <Footer />
+      </div>
     </div>
   );
 };

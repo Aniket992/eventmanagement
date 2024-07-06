@@ -6,6 +6,7 @@ export const theme = {
   extend: {
     fontFamily: {
       avenger: ['Avenger'],
+      avengerd: ['Avengerd'],
     }
   
     

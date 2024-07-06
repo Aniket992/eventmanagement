@@ -12,6 +12,7 @@ const EventsProvider = ({ children }) => {
     const fetchEvents = async () => {
       try {
         const response = await axios.get(`${URL}/api/event/filter`);
+        console.log(response.data);
         const eventsData = response.data.events;
         setEvents(eventsData);
         localStorage.setItem('events', JSON.stringify(eventsData));

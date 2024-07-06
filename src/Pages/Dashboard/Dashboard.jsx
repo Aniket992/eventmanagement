@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Footer from "../../Components/Footer/Footer";
-import homebg from "../../Assets/homebg.avif";
 import './Dashboard.css';
 import API_BASE_URL from "../../apiconfig"; 
 

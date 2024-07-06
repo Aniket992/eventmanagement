@@ -1,116 +1,90 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import "./About.css";
 import Navbar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footer/Footer";
-import aboutbg from "../../Assets/aboutbg.jpg";
-import jarvis from "../../Assets/jarvis.webp";
-import about1 from "../../Assets/about1.jpg";
-import about2 from "../../Assets/about2.jpg";
-import about3 from "../../Assets/about3.jpg";
-import about4 from "../../Assets/about4.jpg";
-
+import aboutbg from "../../Assets/blueMultiverse.jpg";
+import comp1 from "../../Assets/comp1.jpg";
+import flaming from "../../Assets/flaming-circle.gif";
 const About = () => {
-  const imageContainerRef = useRef(null);
-
-  useEffect(() => {
-    const imageContainer = imageContainerRef.current;
-    const images = imageContainer.children;
-    const totalImages = images.length;
-
-    let currentIndex = 0;
-
-    const cycleImages = () => {
-      const nextIndex = (currentIndex + 1) % totalImages;
-
-      // Remove the first image and append it to the end
-      const firstImage = images[0];
-      imageContainer.appendChild(firstImage);
-
-      currentIndex = nextIndex;
-    };
-
-    const interval = setInterval(cycleImages, 2000); // Change the interval time as needed (2000ms = 2 seconds)
-
-    return () => clearInterval(interval); // Cleanup the interval on component unmount
-  }, []);
-
-  const handleClick = () => {
-    window.open("https://iviewd.com/lpu2/", "_blank");
-  };
-
   return (
     <>
-      <div className="bg-cover bg-center bg-black">
-        <Navbar />
-        <div className="flex flex-col sm:flex-row">
-          <div className="about-page-container  m-5 w-full sm:w-1/2 backdrop-filter backdrop-blur-lg bg-white bg-opacity-30 relative overflow-hidden">
-            <div className="about-content font-sans text-white p-4 sm:text-xl relative bg-cover bg-center bg-black">
-              {/* style={{ backgroundImage: `url(${jarvis})` }} */}
-              <div className="rotating-background"></div>
-              <h1 className="text-center mb-2 font-sans font-extrabold text-black rounded-xl text-4xl bg-orange-400 p-1 relative">
-                Lovely Professional University (LPU)
-                <div className="rotating-background"></div>
-              </h1>
-              <p>
-                Lovely Professional University (LPU) is a private university
-                situated in Punjab, India. Established in 2005, LPU is known for
-                its expansive campus, diverse academic programs, and vibrant
-                student life. The university offers undergraduate, postgraduate,
-                and doctoral programs across various disciplines including
-                Engineering, Business, Design, Arts, Sciences, and more.
-              </p>
-              <p>
-                LPU's campus is spread over 600+ acres and boasts world-class
-                infrastructure, modern amenities, and state-of-the-art
-                facilities. It has been recognized by various national and
-                international bodies for its academic excellence and innovative
-                approach to education.
-              </p>
-              <p>
-                The university emphasizes holistic development through a blend
-                of academic learning, practical exposure, research
-                opportunities, and extracurricular activities. LPU is committed
-                to nurturing global leaders and fostering a culture of
-                innovation, entrepreneurship, and social responsibility.
-              </p>
-              <p>
-                For more information about Lovely Professional University, visit
-                their official website:
-                <a
-                  href="https://www.lpu.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  www.lpu.in
-                </a>
-              </p>
-            </div>
-          </div>
-          <div className="w-full sm:w-1/2 m-5">
+      <div
+        className="w-full h-full  min-h-screen bg-center flex justify-center items-center  bg-fixed bg-cover"
+        style={{ backgroundImage: `url(${aboutbg})` }}
+      >
+        <div className="w-full  min-h-screen bg-black bg-opacity-35  ">
+          <Navbar />
+          <div className=" w-full zoom  p-7  flex flex-wrap  justify-evenly ">
             <div
-              ref={imageContainerRef}
-              className="flex flex-wrap w-fit justify-center gap-3 m-5"
+              className="  min-h-56  bg-center bg-cover hover:rounded-xl hover:h-64 hover:w-64  rounded-full w-56 "
+              style={{ backgroundImage: `url(${comp1})` }}
             >
-              <img src={about1} alt="image1" className="w-96" />
-              <img src={about2} alt="image2" className="w-96" />
-              <img src={about3} alt="image3" className="w-96" />
-              <img src={about4} alt="image4" className="w-96" />
+              <img
+                className="rotate-animation rounded-full hover:opacity-0 hover:h-64 hover:w-64 hover:transform-none w-56 opacity-65"
+                src={flaming}
+                alt=""
+              />
             </div>
-            <div className="">
-              <div className="col-md-4 flex justify-center p-5  ">
-                <img
-                  width="auto"
-                  height="auto"
-                  src="//www.lpu.in/images/360.gif"
-                  alt="360"
-                  className="self-center cursor-pointer"
-                  onClick={handleClick}
-                />
-              </div>
+            <div
+              className="  h-56  bg-center bg-cover hover:rounded-xl hover:h-64 hover:w-64  rounded-full  w-56 "
+              style={{ backgroundImage: `url(${comp1})` }}
+            >
+              <img
+                className="rotate-animation rounded-full hover:opacity-0 hover:transform-none w-56 opacity-65"
+                src={flaming}
+                alt=""
+              />
+            </div>{" "}
+            <div
+              className="  h-56  bg-center bg-cover hover:rounded-xl hover:h-64 hover:w-64  rounded-full w-56 "
+              style={{ backgroundImage: `url(${comp1})` }}
+            >
+              <img
+                className="rotate-animation rounded-full hover:opacity-0 hover:transform-none w-56 opacity-65"
+                src={flaming}
+                alt=""
+              />
+            </div>{" "}
+            <div
+              className="  h-56  bg-center bg-cover hover:rounded-xl hover:h-64 hover:w-64 rounded-full w-56 "
+              style={{ backgroundImage: `url(${comp1})` }}
+            >
+              <img
+                className="rotate-animation rounded-full hover:opacity-0 hover:transform-none w-56 opacity-65"
+                src={flaming}
+                alt=""
+              />
             </div>
+            <div
+              className="  h-56  bg-center bg-cover hover:rounded-xl hover:h-64 hover:w-64  rounded-full w-56 "
+              style={{ backgroundImage: `url(${comp1})` }}
+            >
+              <img
+                className="rotate-animation rounded-full hover:opacity-0 hover:transform-none w-56 opacity-65"
+                src={flaming}
+                alt=""
+              />
+            </div>{" "}
+          </div>
+          <div className=" w-full h-fit text-center justify-center flex">
+           <p className="rounded-xl bg-black p-3 mb-3 bg-opacity-40 font-avenger text-yellow-500 text-3xl gap-3">MULTIVERSE <p>shadow matters</p> </p>
+          </div>
+          <div className=" zoom  w-full h-1/2 flex justify-center items-center">
+            <p className="about-text-container text-black border-green-500 border  rounded-lg bg-green-600 p-5 hover:bg-opacity-100 bg-opacity-50 text-2xl h-fit text-justify leading-relaxed font-avenger tracking-widest w-3/4">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Cupiditate mollitia inventore quod magni cum quibusdam libero
+              earum eius quam temporibus fugiat consequatur necessitatibus
+              expedita porro, ratione veritatis provident incidunt repellat
+              laborum reprehenderit est molestiae? Quod minus ad esse, nobis
+              amet, optio neque nam perspiciatis, blanditiis facilis id
+              dignissimos alias fuga consectetur quo dolor molestias beatae.
+              Iste ea sequi voluptates quo nulla quam tempore culpa magni
+              dolores consequuntur quidem eaque placeat facere inventore eum
+              adipisci ullam impedit odit sunt, voluptas asperiores ducimus
+              cumque rerum ratione. Repudiandae voluptate sed ex voluptatum
+              aliquam libero assumenda in aliquid id. Nobis ad ullam ab magni.
+            </p>
           </div>
         </div>
-        <Footer />
       </div>
     </>
   );
