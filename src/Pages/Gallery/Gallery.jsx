@@ -1,84 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
-import comp2 from "../../Assets/comp2.jpg";
+import URL from "../../apiconfig";
+
 const Gallery = () => {
+  const [photos, setPhotos] = useState([]);
+  const [video, setVideo] = useState("");
+  const [hoveredImage, setHoveredImage] = useState("");
+
+  useEffect(() => {
+    const fetchGalleryData = async () => {
+      try {
+        const response = await fetch(`${URL}/api/gallery`);
+        console.log(response);
+        if (response.ok) {
+          const data = await response.json();
+          setPhotos(data.photos);
+          setVideo(data.video);
+        } else {
+          console.error('Failed to fetch gallery data:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching gallery data:', error.message);
+      }
+    };
+
+    fetchGalleryData();
+  }, []);
+
   return (
     <>
-    <div className="flex flex-col bg-black w-full h-full">
-    <Navbar />
+      <div className="flex flex-col bg-black w-full min-h-screen ">
+        <Navbar />
 
-      <div className="bg-black flex  w-full  h-full">
-        <div className="w-1/2 h-full bg-gray-700 flex flex-wrap justify-center  gap-2 p-5">
-        <img
-                src={`https://inovation.up.railway.app/uploads/1720032386617-charT.png`}
-                className="m-2 w-40 h-40 object-cover rounded-xl"
+        <div className=" min-h-screen  justify-evenly gap-3 p-1  flex flex-wrap  ">
+          {photos.map((photoId, index) => (
+            <div
+              key={index}
+              className= " w-1/5"
+              onMouseEnter={() => setHoveredImage(`${URL}/api/file/view/6689ae807a3a6f6c97bbe755`)}
+              onMouseLeave={() => setHoveredImage("")}
+            >
+              <img
+                src={`${URL}/api/file/view/${photoId}`}
+                className="w-full h-full object-cover rounded-xl"
+                alt="Gallery"
               />
-          <img
-            className="rounded-xl border border-yellow-300 "
-            src={comp2}
-            alt=""
-          />
-          <img
-            className="rounded-xl border border-yellow-300 "
-            src={comp2}
-            alt=""
-          />
-          <img
-            className="rounded-xl border border-yellow-300 "
-            src={comp2}
-            alt=""
-          />
-          <img
-            className="rounded-xl border border-yellow-300 "
-            src={comp2}
-            alt=""
-          />
-          <img
-            className="rounded-xl border border-yellow-300 "
-            src={comp2}
-            alt=""
-          />
-          <img
-            className="rounded-xl border border-yellow-300 "
-            src={comp2}
-            alt=""
-          />
-          <img
-            className="rounded-xl border border-yellow-300 "
-            src={comp2}
-            alt=""
-          />
-          <img
-            className="rounded-xl border border-yellow-300 "
-            src={comp2}
-            alt=""
-          />
-          <img
-            className="rounded-xl border border-yellow-300 "
-            src={comp2}
-            alt=""
-          />
-          <img
-            className="rounded-xl border border-yellow-300 "
-            src={comp2}
-            alt=""
-          />
-          <img
-            className="rounded-xl border border-yellow-300 "
-            src={comp2}
-            alt=""
-          />
-        </div>
-        <div className="w-1/2 ">
-          <iframe
-          className="w-full h-full "
-            src="https://www.youtube.com/embed/Q9T2BvkzVXk"
-            referrerpolicy="strict-origin-when-cross-origin"
-          ></iframe>
+            </div>
+          ))}
+          {/* <div className="col-span-1 row-span-4 flex items-center justify-center bg-gray-700">
+            {hoveredImage ? (
+              <img
+                src={hoveredImage}
+                className="w-full h-full object-cover rounded-xl"
+                alt="Hovered"
+              />
+            ) : (
+              <iframe
+                className="w-full h-full"
+                src={video.replace("watch?v=", "embed/")}
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="Video"
+              ></iframe>
+            )}
+          </div> */}
         </div>
       </div>
-      </div>
-
     </>
   );
 };

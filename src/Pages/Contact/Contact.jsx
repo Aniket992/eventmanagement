@@ -44,8 +44,9 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-       await axios.post(`${URL}/api/contactUs`, formData);
+       await axios.post(`${URL}/api/contactUs/message/create`, formData);
       setFormSuccess("Message sent successfully!");
+      alert("message sent. thank you")
       setFormError(null);
     } catch (error) {
       console.error("Error sending message:", error);

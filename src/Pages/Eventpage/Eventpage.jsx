@@ -44,9 +44,18 @@ const EventPage = () => {
         .then(() => console.log("Shared successfully"))
         .catch((error) => console.error("Error sharing:", error));
     } else {
-      console.log("Share API not supported.");
+      // Copy the link to the clipboard
+      const link = window.location.href;
+      navigator.clipboard.writeText(link)
+        .then(() => {
+          alert("Link copied to clipboard. Ready to share!");
+        })
+        .catch((error) => {
+          console.error("Error copying link:", error);
+        });
     }
   };
+  
 
   if (loading) return <p>Loading...</p>;
 
