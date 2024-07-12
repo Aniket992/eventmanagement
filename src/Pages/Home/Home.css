@@ -1,5 +1,60 @@
+.hero-left,
+.hero-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.hero-left {
+  left: 0;
+  animation-name: expandFromLeft;
+}
+
+.hero-right {
+  right: 0;
+  animation-name: expandFromRight;
+}
+
+@keyframes expandFromLeft {
+  0% {
+    left: 0;
+    width: 0;
+  }
+  100% {
+    left: 0;
+    width: 50%;
+  }
+}
+
+@keyframes expandFromRight {
+  0% {
+    right: 0;
+    width: 0;
+  }
+  100% {
+    right: 0;
+    width: 50%;
+  }
+}
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
 
+.hero {
+  
+  box-shadow: inset 0 0 10px rgb(3, 60, 165), inset 0 0 60px rgb(110, 102, 102);
+}
+
+.hero-img{
+  -webkit-box-reflect: below 2px linear-gradient(transparent, transparent, rgba(4, 4, 4, 0.267));
+
+}
 
 .gate-container {
     display: flex;
@@ -186,6 +241,49 @@
 
 .circle:nth-child(3) {
   animation-delay: 1s;
+}
+.orbit-container {
+  position: relative;
+  width: 300px; /* Adjust as needed */
+  height: 300px; /* Adjust as needed */
+  transform-style: preserve-3d;
+  animation: rotateZ 5s linear infinite;
+}
+
+.orbit-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle-image {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+}
+
+.orbit-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: -50px 0; /* Adjust as needed to place the images correctly */
+}
+
+.ironman-left {
+  transform: rotateY(0deg) translateX(150px) translateY(-50%);
+}
+
+.ironman-right {
+  transform: rotateY(180deg) translateX(150px) translateY(-50%);
+}
+
+@keyframes rotateZ {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
 }
 
 /* .loadbody {

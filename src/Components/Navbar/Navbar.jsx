@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css'; 
 import logo from "../../Assets/techSprint.png";
+import './Navbar.css';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -17,27 +18,24 @@ const Navbar = () => {
         <div className="blocks sm:hidden " onClick={handleMenuToggle}>
           <i className="fas fa-bars text-2xl"></i>
         </div>
-        <ul className="hidden sm:flex sm:items-center    text-xl w-full justify-between ">
-        <a href="/" className=" pt-4">
+        <ul className="hidden sm:flex sm:items-center  border-blue-700  border-y-8  bg-gray-600  text-xl w-full justify-between ">
           
-          <img className='w-52 m-1 hover:transform-none' src={logo} alt="" />
 
-          </a>
           <li className="nav-item">
-            <a href="/" className="nav-links px-3 py-2 border-2 font-avenger tracking-widest border-red-700 bg-black hover:bg-red-700">Home</a>
+            <a href="/" className="nav-links px-3 py-2 border-2 font-avenger tracking-widest text-white bg-black hover:text-black hover:bg-green-400 ">Home</a>
           </li>
           <li className="nav-item">
-            <a href="/events" className="nav-links px-3 py-2  border-2 font-avenger tracking-widest border-indigo-700 bg-black  hover:bg-indigo-700">Events</a>
+            <a href="/events" className="nav-links px-3 py-2  border-2 font-avenger tracking-widest  text-white bg-black hover:text-black hover:bg-green-400  ">Events</a>
           </li>
           <li className="nav-item">
-            <a href="/gallery" className="nav-links px-3 py-2  border-2 font-avenger tracking-widest border-indigo-700 bg-black  hover:bg-indigo-700">Gallery</a>
+            <a href="/gallery" className="nav-links px-3 py-2  border-2 font-avenger tracking-widest text-white bg-black hover:text-black hover:bg-green-400 ">Gallery</a>
           </li>
 
           <li className="nav-item">
-            <a href="/about" className="nav-links px-3 py-2   border-2 font-avenger tracking-widest border-green-600 bg-black hover:bg-green-700">About</a>
+            <a href="/about" className="nav-links px-3 py-2   border-2 font-avenger tracking-widest text-white bg-black hover:text-black hover:bg-green-400" >About</a>
           </li>
           <li className="nav-item">
-            <a href="/contact" className="nav-links px-3 py-2  border-2 font-avenger tracking-widest border-red-700 bg-black hover:bg-red-700">Contacts</a>
+            <a href="/contact" className="nav-links px-3 py-2  border-2 font-avenger tracking-widest text-white bg-black hover:text-black hover:bg-green-400 ">Contacts</a>
           </li>
         </ul>
       </div>

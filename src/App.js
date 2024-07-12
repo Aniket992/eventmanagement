@@ -9,13 +9,11 @@ import Events from "./Pages/Events/Events";
 import Login from "./Components/Login/Login";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import CreateEventForm from "./Components/CreateEventForm";
-import DashboardLayout from "./Components/Layouts/DashboardLayouts";
 import { EventsProvider } from "./Components/EventsContext";
 import Gallery from "./Pages/Gallery/Gallery";
 import Eventpage from "./Pages/Eventpage/Eventpage";
 
 function App() {
-  const [adminAuthenticated, setAdminAuthenticated] = useState(false);
 
   return (
     <EventsProvider>
@@ -32,18 +30,15 @@ function App() {
           
           <Route
             path="/adminlogin"
-            element={<Login setAdminAuthenticated={setAdminAuthenticated} />}
+            element={<Login />}
           />
           <Route
-            path="/admin/dashboard"
+            path="/dashboard"
             element={
-              <DashboardLayout setAdminAuthenticated={setAdminAuthenticated} />
+              <Dashboard/>
             }
           >
-            <Route
-              index
-              element={<Dashboard isAdminAuthenticated={adminAuthenticated} />}
-            />
+           
             <Route path="createEvent" element={<CreateEventForm />} />
     
           </Route>

@@ -5,11 +5,13 @@ import "./Login.css";
 import bgImage from "../../Assets/marssurface.jpg";
 import RevolvingPhotos from "../RevolvingPhotos/RevolvingPhotos";
 import URL from "../../apiconfig";
-const Login = ({ setAdminAuthenticated }) => {
+
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+
   const handleHome = () => {
     navigate("/");
   };
@@ -20,14 +22,11 @@ const Login = ({ setAdminAuthenticated }) => {
     try {
       const response = await axios.post(`${URL}/api/user/login`, {
         email,
-        password,
-      });
+        password});
+        localStorage.setItem("token", `Bearer ${response.data.token}`);
 
-      setAdminAuthenticated(true);
-      // Optionally, store token or other data in local storage or context
-      localStorage.setItem('token', `Bearer ${response.data.token}`);
-
-      navigate("/admin/dashboard");
+      console.log(response.data);
+      navigate("/dashboard");
     } catch (error) {
       setErrorMessage("Invalid credentials");
     }

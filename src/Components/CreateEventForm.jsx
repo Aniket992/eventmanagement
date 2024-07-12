@@ -20,20 +20,26 @@ const CreateEventForm = () => {
       lastDateOfRegistration: "",
       duration: 0,
     },
-    eligibilities: "",
-    rules: "",
-    ruleBook: null, // Changed to null to handle file input
+    eligibilities: [""],
+    rules: [""],
+    ruleBook: null,
     contact: [{ name: "", phone: "" }],
     registrationCharges: [{ name: "", currency: "INR", amount: "", isMandatory: true }],
+    photos: [],
   });
+
+  const [photos, setPhotos] = useState([]);
+  const [photoIDs, setPhotoIDs] = useState([]);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "ruleBook" && files.length > 0) {
       setFormData({
         ...formData,
-        [name]: files[0], // Store the file object
+        [name]: files[0],
       });
+    } else if (name === "photos" && files.length > 0) {
+      setPhotos([...photos, ...files]);
     } else {
       setFormData({
         ...formData,
@@ -63,8 +69,44 @@ const CreateEventForm = () => {
     }
   };
 
+  const handleAddField = (field) => {
+    setFormData({
+      ...formData,
+      [field]: [...formData[field], ""],
+    });
+  };
+
+  const handleRemoveField = (field, index) => {
+    const updatedArray = formData[field].filter((_, idx) => idx !== index);
+    setFormData({
+      ...formData,
+      [field]: updatedArray,
+    });
+  };
+
+  const handlePhotoUpload = async () => {
+    const uploadedPhotoIDs = [];
+    for (const photo of photos) {
+      const formData = new FormData();
+      formData.append("photo", photo);
+      try {
+        const response = await axios.post(`${API_BASE_URL}/api/photo/upload`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
+        uploadedPhotoIDs.push(response.data.photoID);
+      } catch (error) {
+        console.error("Error uploading photo:", error);
+      }
+    }
+    setPhotoIDs(uploadedPhotoIDs);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    await handlePhotoUpload();
+
     const formDataToSubmit = new FormData();
     for (const key in formData) {
       if (key === "ruleBook") {
@@ -86,11 +128,13 @@ const CreateEventForm = () => {
       }
     }
 
+    formDataToSubmit.append("photos", photoIDs);
+
     try {
-        const authorization = localStorage.getItem('token');
+      const authorization = localStorage.getItem('token');
       const response = await axios.post(`${API_BASE_URL}/api/event/create`, formDataToSubmit, {
         headers: {
-            authorization,
+          authorization,
           'Content-Type': 'multipart/form-data',
         },
       });
@@ -141,41 +185,58 @@ const CreateEventForm = () => {
       </div>
       <div className="mb-4">
         <label className="block mb-1">Eligibilities:</label>
-        <input type="text" name="eligibilities" value={formData.eligibilities} onChange={handleChange} required className="w-full p-2 border rounded" />
+        {formData.eligibilities.map((eligibility, index) => (
+          <div key={index} className="flex items-center mb-2">
+            <input type="text" name={`eligibility-${index}`} value={eligibility} onChange={(e) => handleNestedChange(e, "eligibilities", index)} required className="w-full p-2 border rounded" />
+            <button type="button" onClick={() => handleRemoveField("eligibilities", index)} className="ml-2 text-red-500">Remove</button>
+          </div>
+        ))}
+        <button type="button" onClick={() => handleAddField("eligibilities")} className="text-blue-500">Add Eligibility</button>
       </div>
       <div className="mb-4">
         <label className="block mb-1">Rules:</label>
-        <input type="text" name="rules" value={formData.rules} onChange={handleChange} required className="w-full p-2 border rounded" />
+        {formData.rules.map((rule, index) => (
+          <div key={index} className="flex items-center mb-2">
+            <input type="text" name={`rule-${index}`} value={rule} onChange={(e) => handleNestedChange(e, "rules", index)} required className="w-full p-2 border rounded" />
+            <button type="button" onClick={() => handleRemoveField("rules", index)} className="ml-2 text-red-500">Remove</button>
+          </div>
+        ))}
+        <button type="button" onClick={() => handleAddField("rules")} className="text-blue-500">Add Rule</button>
       </div>
       <div className="mb-4">
         <label className="block mb-1">Rule Book:</label>
-        <input
-          type="file"
-          name="ruleBook"
-          onChange={handleChange}
-          required
-          className="w-full p-2 border rounded"
-        />
+        <input type="file" name="ruleBook" onChange={handleChange} className="w-full p-2 border rounded" />
       </div>
       <div className="mb-4">
-        <label className="block mb-1">Contact:</label>
-        <div className="flex space-x-4">
-          <input type="text" name="name" placeholder="Name" value={formData.contact[0].name} onChange={(e) => handleNestedChange(e, "contact", 0)} required className="w-1/2 p-2 border rounded mb-2" />
-          <input type="tel" name="phone" placeholder="Phone" value={formData.contact[0].phone} onChange={(e) => handleNestedChange(e, "contact", 0)} required className="w-1/2 p-2 border rounded mb-2" />
-        </div>
+        <label className="block mb-1">Contact Details:</label>
+        {formData.contact.map((contact, index) => (
+          <div key={index} className="flex items-center mb-2">
+            <input type="text" name="name" placeholder="Name" value={contact.name} onChange={(e) => handleNestedChange(e, "contact", index)} required className="w-1/2 p-2 border rounded mr-2" />
+            <input type="tel" name="phone" placeholder="Phone" value={contact.phone} onChange={(e) => handleNestedChange(e, "contact", index)} required className="w-1/2 p-2 border rounded" />
+          </div>
+        ))}
+        <button type="button" onClick={() => handleAddField("contact")} className="text-blue-500">Add Contact</button>
       </div>
       <div className="mb-4">
         <label className="block mb-1">Registration Charges:</label>
-        <div className="flex space-x-4">
-          <input type="text" name="name" placeholder="Name" value={formData.registrationCharges[0].name} onChange={(e) => handleNestedChange(e, "registrationCharges", 0)} required className="w-full p-2 border rounded mb-2" />
-          <input type="text" name="currency" placeholder="Currency" value={formData.registrationCharges[0].currency} onChange={(e) => handleNestedChange(e, "registrationCharges", 0)} required className="w-1/3 p-2 border rounded mb-2" />
-          <input type="text" name="amount" placeholder="Amount" value={formData.registrationCharges[0].amount} onChange={(e) => handleNestedChange(e, "registrationCharges", 0)} required className="w-1/3 p-2 border rounded mb-2" />
-        </div>
+        {formData.registrationCharges.map((charge, index) => (
+          <div key={index} className="flex items-center mb-2">
+            <input type="text" name="name" placeholder="Charge Name" value={charge.name} onChange={(e) => handleNestedChange(e, "registrationCharges", index)} required className="w-1/4 p-2 border rounded mr-2" />
+            <input type="text" name="currency" placeholder="Currency" value={charge.currency} onChange={(e) => handleNestedChange(e, "registrationCharges", index)} required className="w-1/4 p-2 border rounded mr-2" />
+            <input type="number" name="amount" placeholder="Amount" value={charge.amount} onChange={(e) => handleNestedChange(e, "registrationCharges", index)} required className="w-1/4 p-2 border rounded mr-2" />
+            <label className="flex items-center space-x-2">
+              <input type="checkbox" name="isMandatory" checked={charge.isMandatory} onChange={(e) => handleNestedChange(e, "registrationCharges", index)} />
+              <span>Mandatory</span>
+            </label>
+          </div>
+        ))}
+        <button type="button" onClick={() => handleAddField("registrationCharges")} className="text-blue-500">Add Registration Charge</button>
       </div>
-      <div className="flex justify-between">
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">Create Event</button>
-        {/* <button type="button" onClick={onClose} className="bg-gray-500 text-white px-4 py-2 rounded">Cancel</button> */}
+      <div className="mb-4">
+        <label className="block mb-1">Photos:</label>
+        <input type="file" name="photos" onChange={handleChange} multiple className="w-full p-2 border rounded" />
       </div>
+      <button type="submit" className="bg-blue-500 text-white p-2 rounded">Create Event</button>
     </form>
   );
 };

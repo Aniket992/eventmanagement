@@ -1,63 +1,47 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState } from 'react';
 import Footer from "../../Components/Footer/Footer";
+import EventCard from '../../Components/AdminComponents/Event/Event';
+import ContactCard from '../../Components/AdminComponents/Contact/Contact';
+import AboutCard from '../../Components/AdminComponents/About/About';
+import GalleryCard from '../../Components/AdminComponents/Gallery/Gallery';
+import RegistrationCard from "../../Components/AdminComponents/Registrations/Registrations";
 import './Dashboard.css';
-import API_BASE_URL from "../../apiconfig"; 
+import AdminNav from '../../Components/AdminNav/AdminNav';
+import useAuth from "../../Components/AdminComponents/UseAuth/UseAuth";
 
-const Dashboard = ({ isAdminAuthenticated }) => {
-  const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
+const Dashboard = () => {
+  const isLoading = useAuth();
+  const [activeComponent, setActiveComponent] = useState('event');
 
-  useEffect(() => {
-    if (!isAdminAuthenticated) {
-      navigate("/adminlogin"); // Redirect to login if not authenticated
-    } else {
-      fetchEvents(); // Fetch events if authenticated
-    }
-  }, [isAdminAuthenticated, navigate]);
+  if (isLoading) {
+    return <div className="flex justify-center items-center min-h-screen">Loading...</div>;
+  }
 
-  const fetchEvents = async () => {
-    try {
-      const response = await axios.get(`${API_BASE_URL}/api/event/filter`);
-      setEvents(response.data.events);
-    } catch (error) {
-      console.error("Error fetching events:", error);
-    } finally {
-      setLoading(false);
+  const renderComponent = () => {
+    switch (activeComponent) {
+      case 'event':
+        return <EventCard />;
+      case 'contact':
+        return <ContactCard />;
+      case 'about':
+        return <AboutCard />;
+      case 'gallery':
+        return <GalleryCard />;
+      case 'registration':
+        return <RegistrationCard />;
+      default:
+        return <EventCard />;
     }
   };
-
-
-
-  const handleEventClick = (eventId) => {
-    // Navigate to event details page
-  };
-
- 
 
   return (
-    <div className="bg-gray-500 text-white">
-      <div className="dashboard-container p-10">
+    <div className="bg-gray-500 text-white min-h-screen flex flex-col">
+      <AdminNav setActiveComponent={setActiveComponent} />
+      <div className="dashboard-container p-10 flex-1">
         <h1 className="text-3xl font-bold mb-5 text-center">Welcome Admin!</h1>
-       
-        {loading ? (
-          <p>Loading events...</p>
-        ) : (
-          <div className="active-events grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {events.map((event) => (
-              <div
-                key={event._id}
-                className="event-card bg-white p-5 rounded text-black shadow-md cursor-pointer"
-                onClick={() => handleEventClick(event._id)}
-              >
-                <h2 className="text-2xl font-bold mb-2 ">{event.eventName}</h2>
-                <p>{event.description}</p>
-              </div>
-            ))}
-          </div>
-        )}
+        <div className="grid grid-cols-1 gap-6">
+          {renderComponent()}
+        </div>
       </div>
       <Footer />
     </div>

@@ -1,17 +1,16 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const AdminNav = ({ setAdminAuthenticated }) => {
+const AdminNav = ({ setActiveComponent }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    setAdminAuthenticated(false);
     localStorage.removeItem('token'); // Clear token or other relevant data from local storage
     navigate('/adminlogin');
   };
 
   const handleGoToDashboard = () => {
-    navigate('/admin/dashboard');
+    navigate('/dashboard');
   };
 
   return (
@@ -20,10 +19,11 @@ const AdminNav = ({ setAdminAuthenticated }) => {
         <div className="flex justify-between items-center">
           <h1 className="text-xl font-bold cursor-pointer" onClick={handleGoToDashboard}>Admin Dashboard</h1>
           <div className="flex space-x-4">
-            <Link to="/admin/dashboard/createEvent" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Create Event</Link>
-            <Link to="/admin/dashboard/update-contact" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Update Contact</Link>
-            <Link to="/admin/dashboard/update-about" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Update About</Link>
-            <Link to="/admin/dashboard/events" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Events</Link>
+            <button onClick={() => setActiveComponent('event')} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Events</button>
+            <button onClick={() => setActiveComponent('contact')} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contacts</button>
+            <button onClick={() => setActiveComponent('about')} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</button>
+            <button onClick={() => setActiveComponent('gallery')} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Gallery</button>
+            <button onClick={() => setActiveComponent('registration')} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Registrations</button>
             <button onClick={handleLogout} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</button>
           </div>
         </div>

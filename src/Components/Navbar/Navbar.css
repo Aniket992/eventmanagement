@@ -1,0 +1,9 @@
+.nav-links{
+    box-shadow: 0 0  10px white;
+    border:4px solid rgb(62, 139, 227)
+}
+.event-button{
+    box-shadow: 0 0 10px blue,
+    0 0 20px blue,
+    0 0 30px blue;
+}
