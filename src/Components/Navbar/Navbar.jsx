@@ -13,26 +13,27 @@ const Navbar = () => {
 
   return (
     <nav
-      className="navbar h-14 pt-2 flex  w-fit sm:w-full justify-center   items-center text-amber-300 font-bold
+      className="navbar h-24 pt-2 flex  w-fit sm:w-full justify-center   items-center text-amber-300 font-bold
      "
     >
       {/* bg-gradient-to-r from-red-700 via-blue-600 to-green-600  text-white */}
 
-      <div className="  flex    h-fit w-full  px-5">
-        <div className="blocks sm:hidden " onClick={handleMenuToggle}>
+      <div className="  flex justify-between     h-fit w-full  px-5">
+        {/* <div className="blocks sm:hidden " onClick={handleMenuToggle}>
           <i className="fas fa-bars text-2xl"></i>
-        </div>
-        <div>
+        </div> */}
+        <div className="flex ">
 
-        <img className=" w-14 rounded-full h-fit bg-white" src={lpulogo} alt="" />
+        <img className=" w-20 h-20 rounded-full  bg-white" src={lpulogo} alt="" />
+        <img className="w-40 h-20 " src={logo} alt="" />
 
         </div>
         <div className="">
-          <img className="w-40 h-14" src={logo} alt="" />
         </div>
         
+        <div className="flex ">
 
-        <ul className="hidden sm:flex sm:items-center gap-3   text-xl w-full justify-end ">
+        <ul className="hidden sm:flex sm:items-center gap-3   text-xl w-full  ">
           <li className="nav-item">
             <a href="/" className="nav-links px-3 py-2     rounded   ">
               Home
@@ -60,6 +61,8 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
+        </div>
+
       </div>
 
       <div
