@@ -1,91 +1,43 @@
-.hero-left,
-.hero-right {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-}
+.home{
+  background: rgb(254,254,254);
+  background: -moz-linear-gradient(90deg, rgba(254,254,254,1) 23%, rgba(52,247,238,1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(254,254,254,1) 23%, rgba(52,247,238,1) 100%);
+  background: linear-gradient(90deg, rgba(254,254,254,1) 23%, rgba(52,247,238,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fefefe",endColorstr="#34f7ee",GradientType=1);}
 
-.hero-left {
-  left: 0;
-  animation-name: expandFromLeft;
-}
-
-.hero-right {
-  right: 0;
-  animation-name: expandFromRight;
-}
-
-@keyframes expandFromLeft {
-  0% {
-    left: 0;
-    width: 0;
-  }
-  100% {
-    left: 0;
-    width: 50%;
-  }
-}
-
-@keyframes expandFromRight {
-  0% {
-    right: 0;
-    width: 0;
-  }
-  100% {
-    right: 0;
-    width: 50%;
-  }
-}
-
-.hero-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
+ hero-left{
+  perspective: 1000px;
+ }
 
 .hero {
   
-  box-shadow: inset 0 0 10px rgb(3, 60, 165), inset 0 0 60px rgb(110, 102, 102);
+  box-shadow: inset 0 0 10px rgb(0, 85, 255), inset 0 0 60px rgb(255, 254, 254);
 }
 
 .hero-img{
-  -webkit-box-reflect: below 2px linear-gradient(transparent, transparent, rgba(4, 4, 4, 0.267));
-
+  -webkit-box-reflect: below 4px linear-gradient(transparent, transparent, rgba(4, 4, 4, 0.267));
 }
 
-.gate-container {
-    display: flex;
-    overflow-x: hidden;
-    overflow-y: visible;
-    position: relative;
+.trophy {
+  position: relative;
+  display: flex;
+  /* width: 150px; */
+  /* height: 250px; */
+  transform-style: preserve-3d;
+  animation: trophyanimate 20s linear infinite;
+
+}
+@keyframes trophyanimate {
+  0%{
+      transform: perspective(1000px) rotateY(0deg);
   }
+  100%{
+      transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+
   
-  .gate-left, .gate-right {
-    height: 100%;
-    position: absolute;
-    transition: width 2s ease-in-out ;
-  }
-  
-  .gate-left {
-    left: 0;
-    width: 50%;
-  }
-  
-  .gate-right {
-    right: 0;
-    width: 50%;
-  }
-  
-  .gate-container:hover .gate-left {
-    width: 0%;
-  }
-  
-  .gate-container:hover .gate-right {
-    width: 0;
-  }
   @keyframes fly {
     0% {
       transform: translateY(0);
@@ -132,6 +84,12 @@
       border-image-source: linear-gradient(90deg, violet, blue, violet);
     }
   }
+
+.welcome-text{
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2); /* Light colored shadow */
+  
+}
+
  /* Home.css */
 .lfire, .rfire {
   transition: transform 0.5s ease-in-out; /* Smooth transition for the sliding effect */
@@ -261,7 +219,10 @@
   width: 100px; /* Adjust as needed */
   height: 100px; /* Adjust as needed */
 }
-
+.bottom-row{
+  font-weight: 600;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 .orbit-image {
   position: absolute;
   top: 50%;

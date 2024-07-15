@@ -13,7 +13,7 @@ import r10 from "../../Assets/comp10.jpg";
 const RevolvingPhotos = () => {
   return (
     <div className="w-1/2 flex justify-center items-center">
-        <div className="box">
+        <div className="box ">
           <span style={{ "--i": 1 }}><img src={r1} alt="image1" /></span>
           <span style={{ "--i": 2 }}><img src={r2} alt="image2" /></span>
           <span style={{ "--i": 3 }}><img src={r3} alt="image3" /></span>

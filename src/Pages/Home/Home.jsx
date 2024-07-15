@@ -8,12 +8,15 @@ import ironmanr from "../../Assets/ironmanr.png";
 import downArrow from "../../Assets/arrow-down.png";
 import circleForRotation from "../../Assets/circleForRotation.png";
 import herobg from "../../Assets/herobg.jpg";
-import r1 from "../../Assets/comp1.jpg";
-import r2 from "../../Assets/comp2.jpg";
-import r3 from "../../Assets/comp3.jpg";
-import lpulogo from "../../Assets/lpulogo.jpg";
+import comp1 from "../../Assets/comp1.jpg";
+import comp2 from "../../Assets/comp2.jpg";
+import comp3 from "../../Assets/comp3.jpg";
+import lpulogo from "../../Assets/lpulogo.png";
+import trophy from "../../Assets/trophy.avif";
 import "./Home.css";
-
+import YouTubePlayer from "../../Components/YouTubePlayer";
+import welcomeimg from "../../Assets/welcome-img.jpeg";
+import RevolvingPhotos from "../../Components/RevolvingPhotos/RevolvingPhotos";
 const Home = () => {
   const { events, loading } = useContext(EventsContext);
 
@@ -29,80 +32,194 @@ const Home = () => {
 
   return (
     <div
-      className="w-full h-full flex flex-col bg-center bg-black bg-fixed bg-cover text-white"
-      style={{ backgroundImage: `url(${herobg})` }}
+      className=" w-full h-full flex flex-col bg-center  bg-black bg-fixed bg-cover text-white"
+      // style={{ backgroundImage: `url(${herobg})` }}
     >
-      <div className="flex flex-col">
-        <div className="flex flex-col h-screen hero">
-          <div className="zoom">
-          <Navbar />
+      {/* <div className="  font-avengerd text-9xl fixed w-full h-screen text-blue-500  flex justify-center items-center">
+      <h1 className="hero-img">      TechSprint 2024
+      </h1>
 
+
+    </div> */}
+      <div className="flex flex-col gap-3 ">
+        <div className="flex flex-col h-screen border rounded-xl m-3 mt-0 shadow ">
+          <div className="zoom">
+            <Navbar />
           </div>
-          <div className="w-full h-full flex flex-col justify-between">
-            <div className="hero-container flex flex-col md:flex-row">
-              <div className="hero-left overflow-hidden  p-2">
-                <div className=" h-full text-center w-full rounded-xl hero sm:p-10 flex flex-col gap-6 justify-center items-center bg-black bg-opacity-75">
-                  <img className="max-h-44 w-1/3" src={lpulogo} alt="" />
-                  <h1 className="text-4xl p-3 font-avenger tracking-widest bg-blue-500 text-white rounded-xl font-bold">
-                    Linking School’s Innovation & Creativity
-                  </h1>
-                  <p className="text-blue-500 font-bold text-xl">NOW ACCEPTING</p>
-                  <p className="text-3xl text-indigo-500 font-bold font-serif">
-                    ONLINE REGISTRATION
-                  </p>
-                  <button
-                    className="tracking-widest event-button bg-blue-400 text-black font-extrabold text-2xl px-5 py-2 w-64 rounded-2xl hover:scale-x-105 font-avenger border-4 border-blue-700"
-                    onClick={eventSection}
-                  >
-                    Events
-                  </button>
-                </div>
-              </div>
-              <div className="hero-right p-2">
-                <div className="overflow-hidden hero bg-black bg-opacity-90 rounded-xl w-full h-full flex flex-col justify-evenly items-center tracking-widest">
-                  <div className="text-center text-blue-500 bg-black p-2 rounded-xl">
-                    <p className="font-avenger font-bold text-3xl tracking-widest">Innovation Studio</p>
-                    <p className="font-avenger">Present's</p>
-                  </div>
-                  <div>
-                    <p className="font-avengerd text-blue-500 text-9xl">techSprint</p>
+          <div className="pt-4  h-screen  flex  px-8">
+            <div className="  w-1/2    rounded-xl  flex justify-center ">
+              <div className="     text-center rounded-xl   flex flex-col  justify-between items-center bg-transparent ">
+                <div className="flex flex-col items-center  mt-5  justify-center    w-full">
+                  {/* <img
+                      className="w-32 rounded-full bg-white "
+                      src={lpulogo}
+                      alt=""
+                    /> */}
+                  <p className="font-avenger     text-9xl"> techSprint</p>
+
+                  <div className="">
                     <div className="h-fit flex">
-                      <img className="flex fly-animation h-44" src={ironman} alt="Iron Man Left" />
-                      <p className="text-9xl text-blue-500 font-extrabold pr-">2</p>
+                      <img
+                        className="flex fly-animation h-44"
+                        src={ironman}
+                        alt="Iron Man Left"
+                      />
+                      <p className="text-9xl  font-extrabold ">2</p>
                       <div className="flex justify-evenly zoom">
-                        <img className="h-28 mt-5 rotate hover:transform-none" src={circleForRotation} alt="" />
+                        <img
+                          className="h-28 mt-5 rotate hover:transform-none"
+                          src={circleForRotation}
+                          alt=""
+                        />
                       </div>
-                      <p className="text-9xl text-blue-500 font-extrabold">24</p>
-                      <img className="flex h-44 fly-animation" src={ironmanr} alt="Iron Man Right" />
+                      <p className="text-9xl   font-extrabold">24</p>
+                      <img
+                        className="flex h-44 fly-animation"
+                        src={ironmanr}
+                        alt="Iron Man Right"
+                      />
                     </div>
                   </div>
-                  <div className="flex gap-2 w-full justify-evenly">
-                    <img className="hero-img w-40 h-32 rounded-xl" src={r1} alt="" />
-                    <img className="hero-img w-40 h-32 rounded-xl" src={r2} alt="" />
-                    <img className="hero-img w-40 h-32 rounded-xl" src={r3} alt="" />
-                  </div>
+                </div>
+                <div>
+
+                <h1 className="text-2xl w-max  p-3  tracking-widest  rounded-xl font-bold">
+                  LINKING SCHOOL'S INNOVATION & CREATIVITY
+                </h1>
+                <div className="">
+                  <p className="text-red-600 font-bold text-xl">
+                    NOW ACCEPTING
+                  </p>
+                  <p className="text-3xl text-center     text-indigo-500 font-bold font-serif">
+                    ONLINE REGISTRATION
+                  </p>
+                </div>
+                </div>
+
+                <div className=" h-fit    p-2">
+                  <div className=" bottom-row w-full h-fit mt-5 flex-wrap flex  text-sm tracking-widest text-white "></div>
                 </div>
               </div>
             </div>
-            <div className="h-32 zoom border-y-4 mb-2 border-blue-700 mx-8 flex items-center text-center bg-black bg-opacity-75 p-2">
-              <div className="w-full h-fit flex font-avenger text-2xl tracking-widest text-white justify-between">
-                <div>
-                  <p className="text-blue-300 text-3xl">Date</p>
-                  <p className="bg-gray-900 p-2 rounded-xl">18th-19th September 2024</p>
+            <div className="w-1/2 p-1  mt-10   ">
+              <div className="   bg-opacity-90 rounded-xl w-full gap-3 flex flex-col justify-evenly items-center tracking-widest">
+                <div className="bg-transparent w-full h-full "></div>
+
+                <div className="rounded-xl hero-img bg-teal-700 w-fit p-2">
+                  
+                  <YouTubePlayer />
                 </div>
-                <div>
-                  <p className="text-blue-300 text-3xl">Venue</p>
-                  <p className="bg-gray-900 p-2 rounded-xl">Lovely Professional University</p>
-                </div>
-                <div>
-                  <p className="text-blue-300 text-3xl">Event Comprises Of</p>
-                  <p className="bg-gray-900 p-2 rounded-xl">Technical And Non-Technical Competition</p>
-                </div>
+                {/* <div className="flex gap-2 w-full justify-evenly">
+                    <img
+                      className="hero-img w-40 h-32 rounded-xl"
+                      src={r1}
+                      alt=""
+                    />
+                    <img
+                      className="hero-img w-40 h-32 rounded-xl"
+                      src={r2}
+                      alt=""
+                    />
+                    <img
+                      className="hero-img w-40 h-32 rounded-xl"
+                      src={r3}
+                      alt=""
+                    />
+                  </div> */}
               </div>
+            </div>
+          </div>
+          <div className=" flex  text-center justify-evenly gap-5 p-5  w-full  ">
+            <div>
+              <p className="text-red-600 font-bold text-2xl">DATE</p>
+              <p className=" rounded-xl font-semibold  ">18th-19th SEPTEMBER 2024</p>
+            </div>
+            <div>
+              <p className="text-red-600 font-bold text-2xl">
+                EVENT COMPRISES OF
+              </p>
+              <p className=" rounded-xl font-semibold">
+                TECHNICAL AND NON-TECHNICAL COMPETITION
+              </p>
+            </div>
+            <div>
+              <p className="text-red-600 font-bold text-2xl">VENUE</p>
+              <p className=" rounded-xl font-semibold">LOVELY PROFESSIONAL UNIVERSITY</p>
             </div>
           </div>
         </div>
-        <div id="eventSection" className="mb-20">
+
+        <div className="border m-3 flex   h-screen shadow rounded-xl ">
+          <div className="flex flex-col w-1/2 justify-evenly items-center ">
+            <p className="text-9xl font-avenger ">Welcome</p>
+            <p className="font-avenger text-6xl text-yellow-500 underline">
+              Tech Avengers
+            </p>
+            <p className="tracking-wider   text-green-400 font-semibold p-5 m-5 text-center text-xl  welcome-text   ">
+            TECHSPRINT IS AN UPCOMING TECHNICAL CARNIVAL AIMED AT ENRICHING
+THE CURIOSITY, CREATIVITY, AND SCIENTIFIC ATTITUDE AMONG STUDENTS
+FROM CLASS 6 TO 12. IT IS AN EXCELLENT PLATFORM FOR YOUNG MINDS TO
+EXPLORE THE EXCITING WORLD OF TECHNOLOGY, ENGAGE IN HANDS-ON
+TECHNICAL EVENTS, AND SHOWCASE THEIR SKILLS IN THIS AMAZING
+COMPETITIONS. THE EVENT WILL INSPIRE STUDENTS TO THINK OUTSIDE THE
+BOX, DEVELOP PROBLEM-SOLVING ABILITIES, AND EMBRACE THE DIGITAL
+FUTURE. GET READY TO BE IGNITED WITH KNOWLEDGE AND FUN!
+
+            </p>
+          </div>
+            <div className="flex flex-wrap gap-3 w-1/2 items-center justify-evenly   "> 
+          <RevolvingPhotos />
+
+          </div>
+          {/* <div className="flex flex-wrap gap-3 w-1/2 items-center justify-evenly   ">
+            <img className="rounded-xl h-fit hero-img   " src={comp1} alt="" />
+            <img className="rounded-xl h-fit hero-img " src={comp2} alt="" />
+            <img className="rounded-xl h-fit hero-img " src={comp3} alt="" />
+            <img className="rounded-xl h-fit hero-img " src={comp1} alt="" />
+            <img className="rounded-xl h-fit hero-img " src={comp2} alt="" />
+            <img className="rounded-xl h-fit hero-img " src={comp3} alt="" />
+          </div> */}
+        </div>
+        <div className="h-screen border m-3 rounded-xl shadow">
+          <div className=" flex justify-center items-center h-full">
+            <div className="w-1/2  h-full  flex flex-col items-center justify-evenly">
+              <h1 className="text-9xl font-avenger text-center">
+                Competitions
+              </h1>
+              <div className="schedule text-green-400  flex flex-col justify-center items-center gap-5 w-fit p-5 ">
+                <div className="text-2xl font-avenger  tracking-widest w-full">
+                  <p className="text-3xl font-avenger text-yellow-500">day 1</p>
+                  <p>-{">"} robotics olympiad</p>
+                  <p>-{">"} water rocket challenge</p>
+                  <p>-{">"} regard before you discard - best out of waste</p>
+                  <p>-{">"} tech-quiz</p>
+                  <p>-{">"} science-fair</p>
+                </div>
+                <div className="text-2xl font-avenger tracking-widest w-fit">
+                  <p className="text-3xl font-avenger text-yellow-500">day 2</p>
+                  <p>-{">"} bridge building</p>
+                  <p>-{">"} rc-xtreme</p>
+                  <p>-{">"} science-a-thon</p>
+                  <p>
+                    -{">"}
+                    design-x: a curative fashion show to promote sustainability
+                  </p>
+                  <p>-{">"} speed X</p>
+                </div>
+              </div>
+            </div>
+            <div className="w-1/2  flex items-center justify-center     h-full">
+              <img className="rounded-xl trophy w-3/4   shadow" src={trophy} alt="" />
+            </div>
+          </div>
+        </div>
+        <div
+          id="eventSection"
+          className="mb-20 min-h-screen border rounded-xl shadow p-5 m-3"
+        >
+          <div>
+            <h1 className="text-9xl font-avenger text-center p-5">Events</h1>
+          </div>
           {loading ? (
             <p>Loading events...</p>
           ) : (
@@ -113,6 +230,7 @@ const Home = () => {
             </div>
           )}
         </div>
+
         <Footer />
       </div>
     </div>
