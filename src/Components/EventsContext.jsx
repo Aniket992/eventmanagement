@@ -15,7 +15,7 @@ const EventsProvider = ({ children }) => {
         console.log(response.data);
         const eventsData = response.data.events;
         setEvents(eventsData);
-        localStorage.setItem('events', JSON.stringify(eventsData));
+        // localStorage.setItem('events', JSON.stringify(eventsData));
         setLoading(false);
       } catch (error) {
         console.error("Error fetching events:", error);
@@ -23,13 +23,13 @@ const EventsProvider = ({ children }) => {
       }
     };
 
-    const storedEvents = localStorage.getItem('events');
-    if (storedEvents) {
-      setEvents(JSON.parse(storedEvents));
-      setLoading(false);
-    } else {
+    // const storedEvents = localStorage.getItem('events');
+    // if (storedEvents) {
+    //   setEvents(JSON.parse(storedEvents));
+    //   setLoading(false);
+    // } else {
       fetchEvents();
-    }
+    // }
   }, []);
 
   return (
