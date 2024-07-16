@@ -5,6 +5,7 @@ import { EventsContext } from "../../../src/Components/EventsContext";
 import Navbar from "../../Components/Navbar/Navbar";
 import eventbg from "../../Assets/eventbg.jpg";
 import "./Eventpage.css"
+import Footer from "../../Components/Footer/Footer";
 const EventPage = () => {
   const { id: eventId } = useParams(); // Ensure 'id' matches the parameter name in the route path
   const navigate = useNavigate();
@@ -241,6 +242,7 @@ const EventPage = () => {
             </div>
           </div>
           </div>
+          <Footer/>
         </div>
       </div>
     </>

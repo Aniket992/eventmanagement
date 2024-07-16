@@ -16,7 +16,7 @@ const Events = () => {
     >
 
     <Navbar/>
-    <div className="pt-7 pb-7  w-full h-full">
+    <div className="pt-7 pb-7 shadow  w-full h-full">
       <div className=" flex flex-col   ">
         <div className="flex justify-center">
         <img className="h-32 w-80" src={logo} alt="" />

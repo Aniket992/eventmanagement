@@ -5,6 +5,7 @@ import aboutbg from "../../Assets/blueMultiverse.jpg";
 import comp1 from "../../Assets/comp1.jpg";
 import flaming from "../../Assets/flaming-circle.gif";
 import URL from "../../apiconfig";
+import Footer from "../../Components/Footer/Footer";
 
 const About = () => {
   const [photos, setPhotos] = useState([]);
@@ -52,11 +53,13 @@ const About = () => {
 
   return (
     <>
+
       <div
-        className="w-full h-full min-h-screen bg-center flex justify-center items-center bg-fixed bg-cover"
-        style={{ backgroundImage: `url(${aboutbg})` }}
+        className="w-full h-full min-h-screen bg-center  bg-fixed bg-cover bg-black"
+        // style={{ backgroundImage: `url(${aboutbg})` }}
       >
-        <div className="w-full min-h-screen bg-black bg-opacity-35">
+        <div className="w-full h-screen flex flex-col justify-center items-center bg-black bg-opacity-35">
+
           <Navbar />
           <div className="w-full zoom p-7 flex flex-wrap justify-evenly">
             {(apiFailed ? staticPhotos : photos).map((photoSrc, index) => (
@@ -85,8 +88,13 @@ const About = () => {
               {description}
             </p>
           </div>
-        </div>
+
+
+          </div>
+          <Footer/>
+
       </div>
+
     </>
   );
 };

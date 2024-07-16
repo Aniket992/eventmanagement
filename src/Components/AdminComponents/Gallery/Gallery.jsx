@@ -57,12 +57,13 @@ const Gallery = () => {
 
   const handlePhotoUpload = async (e) => {
     const file = e.target.files[0];
+    const Type = "permanent";
     const formData = new FormData();
     formData.append('upload', file);
 
     try {
       const Authorization = localStorage.getItem('token');
-      const response = await axios.post(`${URL}/api/file/upload`, formData, {
+      const response = await axios.post(`${URL}/api/file/upload`, formData,Type ,{
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization
