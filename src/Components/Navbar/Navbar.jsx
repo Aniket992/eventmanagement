@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import logo from "../../Assets/techSprint.png";
 import lpulogo from "../../Assets/logo-lpu.svg";
-import naaclogo from "../../Assets/naac-logo.svg"
+import naaclogo from "../../Assets/naac-logo.svg";
+import iiclogo from "../../Assets/iiclogo.png";
 import "./Navbar.css";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,9 +25,9 @@ const Navbar = () => {
         </div> */}
         <div className="flex   w-1/2  justify-between  items-center gap-3 p-1  ">
 
-        <img className=" w-fit h-28  mr-12  " src={lpulogo} alt="" />
+        <img className=" w-fit h-28    " src={lpulogo} alt="" />
         <img className=" w-fit h-16   " src={naaclogo} alt="" />
-
+        <img className="w-fit h-36 " src={iiclogo} alt="" />
         <img className="w-fit  h-20 " src={logo} alt="" />
 
         </div>
