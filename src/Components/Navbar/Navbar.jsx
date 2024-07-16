@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import logo from "../../Assets/techSprint.png";
-import lpulogo from "../../Assets/lpulogo.png";
-
+import lpulogo from "../../Assets/logo-lpu.svg";
+import naaclogo from "../../Assets/naac-logo.svg"
 import "./Navbar.css";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,25 +13,28 @@ const Navbar = () => {
 
   return (
     <nav
-      className="navbar h-24 pt-2 flex  w-fit sm:w-full justify-center   items-center text-amber-300 font-bold
+      className="navbar bg-white h-24 pt-2 flex  w-fit sm:w-full justify-center   items-center text-amber-300 font-bold
      "
     >
       {/* bg-gradient-to-r from-red-700 via-blue-600 to-green-600  text-white */}
 
-      <div className="  flex justify-between     h-fit w-full  px-5">
+      <div className="  flex justify-between     h-fit w-full  pr-5">
         {/* <div className="blocks sm:hidden " onClick={handleMenuToggle}>
           <i className="fas fa-bars text-2xl"></i>
         </div> */}
-        <div className="flex ">
+        <div className="flex   w-1/2  justify-between  items-center gap-3 p-1  ">
 
-        <img className=" w-20 h-20 rounded-full  bg-white" src={lpulogo} alt="" />
-        <img className="w-40 h-20 " src={logo} alt="" />
+        <img className=" w-fit h-28  mr-12  " src={lpulogo} alt="" />
+        <img className=" w-fit h-16   " src={naaclogo} alt="" />
+
+        <img className="w-fit  h-20 " src={logo} alt="" />
 
         </div>
-        <div className="">
+        <div className="flex  justify-center  items-center">
+
         </div>
         
-        <div className="flex ">
+        <div className="flex  text-black ">
 
         <ul className="flex  sm:items-center gap-6  items-center justify-center  mr-5  text-xl   ">
           <li className="nav-item w-20">
@@ -71,11 +74,11 @@ const Navbar = () => {
         } transition-transform duration-300 ease-in-out bg-gradient-to-r from-red-700 via-blue-600 to-green-600 sm:hidden`}
       >
         <div className="flex justify-between  items-center p-5">
-          <a href="/" className="font-avenger text-2xl text-white">
+          <a href="/" className="font-avenger text-2xl ">
             TechEvents
           </a>
           <div onClick={handleMenuToggle}>
-            <i className="fas fa-times text-2xl text-white"></i>
+            <i className="fas fa-times text-2xl"></i>
           </div>
         </div>
         <div className="flex  justify-center h-full">
