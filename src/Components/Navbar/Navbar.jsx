@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className="navbar bg-white h-24 pt-2 flex  w-fit sm:w-full justify-center   items-center text-amber-300 font-bold
+      className="navbar bg-gray-200 rounded-t-xl h-24 pt-2 flex  w-fit sm:w-full justify-center   items-center text-amber-300 font-bold
      "
     >
       {/* bg-gradient-to-r from-red-700 via-blue-600 to-green-600  text-white */}

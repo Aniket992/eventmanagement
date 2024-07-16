@@ -42,20 +42,20 @@ const Home = () => {
 
     </div> */}
       <div className="flex flex-col gap-3 ">
-        <div className="flex flex-col h-screen border rounded-xl m-3 mt-0 shadow ">
-          <div className="zoom">
+        <div className="flex flex-col h-screen bg-gray-700 rounded-xl m-3 mt-0 shadow ">
+          <div className="">
             <Navbar />
           </div>
-          <div className="pt-4  h-screen  flex  px-8">
-            <div className="  w-1/2    rounded-xl  flex justify-center ">
-              <div className="     text-center rounded-xl   flex flex-col  justify-between items-center bg-transparent ">
-                <div className="flex flex-col items-center  mt-5  justify-center    w-full">
+          <div className="  h-screen  flex  ">
+            <div className="  w-1/2 bg-black   rounded-xl  flex justify-center ">
+              <div className="    justify-evenly text-center rounded-xl   flex flex-col   items-center bg-transparent ">
+                <div className="    flex flex-col items-center  mt-5  justify-center    w-full">
                   {/* <img
                       className="w-32 rounded-full bg-white "
                       src={lpulogo}
                       alt=""
                     /> */}
-                  <p className="font-avenger     text-9xl"> techSprint</p>
+                  <p className="font-serif font-extrabold   text-9xl"> TECHSPRINT</p>
 
                   <div className="">
                     <div className="h-fit flex">
@@ -64,7 +64,7 @@ const Home = () => {
                         src={ironman}
                         alt="Iron Man Left"
                       />
-                      <p className="text-9xl  font-extrabold ">2</p>
+                      <p className="text-9xl   font-extrabold ">2</p>
                       <div className="flex justify-evenly zoom">
                         <img
                           className="h-28 mt-5 rotate hover:transform-none"
@@ -80,21 +80,25 @@ const Home = () => {
                       />
                     </div>
                   </div>
-                </div>
-                <div>
-
-                <h1 className="text-2xl w-max  p-3  tracking-widest  rounded-xl font-bold">
+                  <h1 className="text-2xl w-max  p-3 bg-white text-black  tracking-widest  rounded-xl font-bold">
                   LINKING SCHOOL'S INNOVATION & CREATIVITY
                 </h1>
-                <div className="">
-                  <p className="text-red-600 font-bold text-xl">
+                </div>
+
+               
+                <div className="text-2xl font-bold ">
+                  <p className="  ">
                     NOW ACCEPTING
                   </p>
-                  {/* <p className="text-3xl text-center     text-indigo-500 font-bold font-serif">
-                    ONLINE REGISTRATION
-                  </p> */}
+                  <p>ONLINE REGISTRATION</p>
+
                 </div>
-                <button className="text-3xl text-center  p-2 rounded-xl hover:scale-x-105     text-indigo-500  font-bold font-serif" onClick={eventSection}> ONLINE REGISTRATION</button>
+                <div>
+                  <p className="text-2xl text-yellow-300 font-semibold">Ready to Innovate? Your Tech Journey Starts Here!</p>
+                  <button className="text-4xl font-semibold text-center  p-2 rounded-xl hover:scale-x-105 text-blue-600 shadow mt-5  border px-5
+                    tracking-widest font-avenger " onClick={eventSection}> get started</button>
+
+                  <p></p>
                 </div>
 
                 <div className=" h-fit    p-2">
@@ -102,50 +106,33 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="w-1/2 p-1  mt-10   ">
-              <div className="   bg-opacity-90 rounded-xl w-full gap-3 flex flex-col justify-evenly items-center tracking-widest">
-                <div className="bg-transparent w-full h-full "></div>
+            <div className="w-1/2 bg-black  flex   ">
+              <div className="   rounded-xl w-full  flex justify-center  items-center ">
 
                 <div className="rounded-xl hero-img bg-teal-700 w-fit p-2">
                   
                   <YouTubePlayer />
                 </div>
-                {/* <div className="flex gap-2 w-full justify-evenly">
-                    <img
-                      className="hero-img w-40 h-32 rounded-xl"
-                      src={r1}
-                      alt=""
-                    />
-                    <img
-                      className="hero-img w-40 h-32 rounded-xl"
-                      src={r2}
-                      alt=""
-                    />
-                    <img
-                      className="hero-img w-40 h-32 rounded-xl"
-                      src={r3}
-                      alt=""
-                    />
-                  </div> */}
+              
               </div>
             </div>
           </div>
-          <div className=" flex  text-center justify-evenly gap-5 p-5  w-full  ">
+          <div className=" flex text-2xl bg-gray-400 text-black rounded-b-xl  text-center justify-evenly gap-5 p-5  w-full  ">
             <div>
-              <p className="text-red-600 font-bold text-2xl">DATE</p>
-              <p className=" rounded-xl font-semibold  ">18th-19th SEPTEMBER 2024</p>
+              <p className="text-yellow-900 font-bold text-2xl">DATE</p>
+              <p className=" rounded-xl font-bold  ">18th-19th OCTOBER 2024</p>
             </div>
             <div>
-              <p className="text-red-600 font-bold text-2xl">
+              <p className="text-yellow-900 font-bold text-2xl">
                 EVENT COMPRISES OF
               </p>
-              <p className=" rounded-xl font-semibold">
+              <p className=" rounded-xl font-bold">
                 TECHNICAL AND NON-TECHNICAL COMPETITION
               </p>
             </div>
             <div>
-              <p className="text-red-600 font-bold text-2xl">VENUE</p>
-              <p className=" rounded-xl font-semibold">LOVELY PROFESSIONAL UNIVERSITY</p>
+              <p className="text-yellow-900 font-bold text-2xl">VENUE</p>
+              <p className=" rounded-xl font-bold">LOVELY PROFESSIONAL UNIVERSITY</p>
             </div>
           </div>
         </div>
