@@ -22,8 +22,9 @@ const Login = () => {
     try {
       const response = await axios.post(`${URL}/api/user/login`, {
         email,
-        password});
-        localStorage.setItem("token", `Bearer ${response.data.token}`);
+        password,
+      });
+      localStorage.setItem("token", `Bearer ${response.data.token}`);
 
       console.log(response.data);
       navigate("/dashboard");
@@ -43,7 +44,10 @@ const Login = () => {
     >
       <RevolvingPhotos />
       <div className="w-1/2 h-screen flex flex-col justify-center items-center">
-        <button className="rounded-full bg-blue-400 text-gray-800 font-bold p-6 mb-4" onClick={handleHome}>
+        <button
+          className="rounded-full bg-blue-400 text-gray-800 font-bold p-6 mb-4"
+          onClick={handleHome}
+        >
           Home
         </button>
         <form
@@ -77,7 +81,10 @@ const Login = () => {
             Forgot Password?
           </button>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
-          <button className="bg-lime-500 p-2 w-64 rounded-xl text-xl" type="submit">
+          <button
+            className="bg-lime-500 p-2 w-64 rounded-xl text-xl"
+            type="submit"
+          >
             Login
           </button>
         </form>
