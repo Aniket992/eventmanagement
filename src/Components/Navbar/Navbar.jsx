@@ -33,29 +33,29 @@ const Navbar = () => {
         
         <div className="flex ">
 
-        <ul className="hidden sm:flex sm:items-center gap-3   text-xl w-full  ">
-          <li className="nav-item">
+        <ul className="flex  sm:items-center gap-6  items-center justify-center  mr-5  text-xl   ">
+          <li className="nav-item w-20">
             <a href="/" className="nav-links px-3 py-2     rounded   ">
               Home
             </a>
           </li>
-          <li className="nav-item">
+          <li className="nav-item w-20">
             <a href="/events" className="nav-links px-3 py-2     rounded    ">
               Events
             </a>
           </li>
-          <li className="nav-item">
+          <li className="nav-item w-20">
             <a href="/gallery" className="nav-links px-3 py-2    rounded   ">
               Gallery
             </a>
           </li>
 
-          <li className="nav-item">
+          <li className="nav-item w-20">
             <a href="/about" className="nav-links px-3 py-2      rounded   ">
               About
             </a>
           </li>
-          <li className="nav-item">
+          <li className="nav-item w-20 mr-3">
             <a href="/contact" className="nav-links px-3 py-2   rounded   ">
               Contacts
             </a>
@@ -70,7 +70,7 @@ const Navbar = () => {
           isMenuOpen ? "translate-y-0" : "translate-y-full"
         } transition-transform duration-300 ease-in-out bg-gradient-to-r from-red-700 via-blue-600 to-green-600 sm:hidden`}
       >
-        <div className="flex justify-between items-center p-5">
+        <div className="flex justify-between  items-center p-5">
           <a href="/" className="font-avenger text-2xl text-white">
             TechEvents
           </a>
@@ -78,12 +78,12 @@ const Navbar = () => {
             <i className="fas fa-times text-2xl text-white"></i>
           </div>
         </div>
-        <div className="flex flex-col justify-center h-full">
-          <ul className="flex flex-col text-yellow-400 gap-6 font-avenger font-extrabold items-center text-2xl tracking-wider">
-            <li className="nav-item">
+        <div className="flex  justify-center h-full">
+          <ul className="flex   gap-6 font-avenger font-extrabold items-center text-xl tracking-wider">
+            <li className="nav-item ">
               <a
                 href="/"
-                className="nav-links px-3 py-2"
+                className="nav-links  px-3 py-2"
                 onClick={handleMenuToggle}
               >
                 Home

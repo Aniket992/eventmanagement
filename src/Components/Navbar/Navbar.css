@@ -1,12 +1,24 @@
 
 
 .nav-item{
+    border-radius: 5px;
     color: white;
     font-family: roboto;
-    
+    /* background-color: gainsboro; */
+
 }
 .nav-item:hover{
+    transform: scale();
     background-color: gainsboro;
     border-radius: 2px;
     color:black
+}
+.nav-links{
+    /* background-color: ; */
+    transition: 0.1s ease-in-out;
+}
+.nav-links:hover{
+font-size: larger;
+    background-color: gainsboro;
+
 }

@@ -90,10 +90,11 @@ const Home = () => {
                   <p className="text-red-600 font-bold text-xl">
                     NOW ACCEPTING
                   </p>
-                  <p className="text-3xl text-center     text-indigo-500 font-bold font-serif">
+                  {/* <p className="text-3xl text-center     text-indigo-500 font-bold font-serif">
                     ONLINE REGISTRATION
-                  </p>
+                  </p> */}
                 </div>
+                <button className="text-3xl text-center  p-2 rounded-xl hover:scale-x-105     text-indigo-500  font-bold font-serif" onClick={eventSection}> ONLINE REGISTRATION</button>
                 </div>
 
                 <div className=" h-fit    p-2">
