@@ -181,39 +181,7 @@ FUTURE. GET READY TO BE IGNITED WITH KNOWLEDGE AND FUN!
             <img className="rounded-xl h-fit hero-img " src={comp3} alt="" />
           </div> */}
         </div>
-        <div className="h-screen border m-3 rounded-xl shadow">
-          <div className=" flex justify-center items-center h-full">
-            <div className="w-1/2  h-full  flex flex-col items-center justify-evenly">
-              <h1 className="text-9xl font-avenger text-center">
-                Competitions
-              </h1>
-              <div className="schedule text-green-400  flex flex-col justify-center items-center gap-5 w-fit p-5 ">
-                <div className="text-2xl font-avenger  tracking-widest w-full">
-                  <p className="text-3xl font-avenger text-yellow-500">day 1</p>
-                  <p>-{">"} robotics olympiad</p>
-                  <p>-{">"} water rocket challenge</p>
-                  <p>-{">"} regard before you discard - best out of waste</p>
-                  <p>-{">"} tech-quiz</p>
-                  <p>-{">"} science-fair</p>
-                </div>
-                <div className="text-2xl font-avenger tracking-widest w-fit">
-                  <p className="text-3xl font-avenger text-yellow-500">day 2</p>
-                  <p>-{">"} bridge building</p>
-                  <p>-{">"} rc-xtreme</p>
-                  <p>-{">"} science-a-thon</p>
-                  <p>
-                    -{">"}
-                    design-x: a curative fashion show to promote sustainability
-                  </p>
-                  <p>-{">"} speed X</p>
-                </div>
-              </div>
-            </div>
-            <div className="w-1/2  flex items-center justify-center     h-full">
-              <img className="rounded-xl trophy w-3/4   shadow" src={trophy} alt="" />
-            </div>
-          </div>
-        </div>
+        
         <div
           id="eventSection"
           className="mb-20 min-h-screen border rounded-xl shadow p-5 m-3"
@@ -230,6 +198,47 @@ FUTURE. GET READY TO BE IGNITED WITH KNOWLEDGE AND FUN!
               ))}
             </div>
           )}
+        </div>
+        <div className="h-screen border m-3 rounded-xl shadow">
+          <div className=" flex justify-center items-center h-full">
+            <div className="w-1/2  h-full p-5  flex flex-col items-center justify-evenly">
+              <h1 className="text-9xl font-avenger text-center">
+                Competitions
+              </h1>
+              <div className="schedule text-green-400   flex border justify-center items-center  w-fit  ">
+                <div className="text-2xl  font-avenger w-1/2 border tracking-widest  h-full">
+                  <p className="text-3xl font-avenger text-center border  text-yellow-500">day 1</p>
+                 <div className="p-3 border">
+
+                  <p>-{">"} robotics olympiad</p>
+                  <p>-{">"} water rocket challenge</p>
+                  <p>-{">"} regard before you discard - best out of waste</p>
+                  <p>-{">"} tech-quiz</p>
+                  <p>-{">"} science-fair</p>
+                  </div>
+
+                </div>
+                <div className="text-2xl font-avenger tracking-widest w-1/2 h-full   ">
+                  <p className="text-3xl font-avenger border text-center text-yellow-500">day 2</p>
+                 <div className="p-3 border">
+
+                  <p>-{">"} bridge building</p>
+                  <p>-{">"} rc-xtreme</p>
+                  <p>-{">"} science-a-thon</p>
+                  <p>
+                    -{">"}
+                    design-x: a curative fashion show to promote sustainability
+                  </p>
+                  <p>-{">"} speed X</p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div className="w-1/2  flex items-center justify-center     h-full">
+              <img className="rounded-xl trophy w-3/4   shadow" src={trophy} alt="" />
+            </div>
+          </div>
         </div>
 
         <Footer />
