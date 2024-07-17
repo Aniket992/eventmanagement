@@ -19,21 +19,21 @@ const EventCard = ({ event }) => {
           <div className="p-5 w-24">
             <img src="https://i.imgur.com/C9DWUDi.png" alt="Event"/>
           </div>
-          <div
+          {/* <div
             className="font-avenger text-yellow-400 rounded-xl bg-black bg-opacity-20 text-4xl"
             style={{ textShadow: "2px 2px 0 #000, 2px 2px 0 #000, 2px 2px 0 #000, 2px 2px 0 #000" }}
           >
             <h3>{event.eventName}</h3>
-          </div>
+          </div> */}
           <div className="bg-black font-bold text-yellow-400 rounded-xl p-5 bg-opacity-55">
             <p>
-              Start Date: {new Date(event.date.startDate).toLocaleDateString()}
+              {/* Start Date: {new Date(event.date.startDate).toLocaleDateString()} */}
             </p>
             <p>
-              End Date: {new Date(event.date.endDate).toLocaleDateString()}
+              {/* End Date: {new Date(event.date.endDate).toLocaleDateString()} */}
             </p>
             <p>
-              Last Date of Registration: {new Date(event.date.lastDateOfRegistration).toLocaleDateString()}
+              {/* Last Date of Registration: {new Date(event.date.lastDateOfRegistration).toLocaleDateString()} */}
             </p>
           </div>
         </div>
