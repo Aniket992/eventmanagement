@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Event.css";
 import URL from "../../../apiconfig";
-import { log } from "three/examples/jsm/nodes/Nodes.js";
 
 const Event = () => {
   const [eventName, setEventName] = useState("");
@@ -31,9 +30,6 @@ const Event = () => {
 
   const [photos, setPhotos] = useState([""]);
   const [ruleBook, setRuleBook] = useState([""]);
-
-  console.log("Photos: ", photos);
-  console.log("RuleBook: ", ruleBook);
 
   const handleStructureChange = (index, value) => {
     const newStructure = [...structure];
@@ -106,7 +102,7 @@ const Event = () => {
       registrationCharge,
     };
 
-    console.log(event);
+    // console.log(event);
 
     try {
       const authorization = localStorage.getItem("token");

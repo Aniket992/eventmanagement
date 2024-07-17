@@ -160,7 +160,7 @@ const EventPage = () => {
               <div className="  w-1/2 flex flex-col justify-between p-5   ">
                 <div className="   flex flex-wrap justify-between   items-center gap-5 ">
                   {event.photos &&
-                    event.photos != [] &&
+                    event.photos.length > 0 &&
                     event.photos.map((photoId) => (
                       <img
                         className="w-64 h-64 rounded-xl"
