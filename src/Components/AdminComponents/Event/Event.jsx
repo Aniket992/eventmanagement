@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Event.css";
 import URL from "../../../apiconfig";
+import { log } from "three/examples/jsm/nodes/Nodes.js";
 
 const Event = () => {
-  const [eventName, setEventName] = useState("Event Name");
-  const [eventType, setEventType] = useState("Type");
-  const [description, setDescription] = useState("description");
+  const [eventName, setEventName] = useState("");
+  const [eventType, setEventType] = useState("");
+  const [description, setDescription] = useState("");
   const [organiserName, setOrganiserName] = useState(
     "Lovely Professional University"
   );
@@ -18,22 +19,26 @@ const Event = () => {
   const [country, setCountry] = useState("India");
   const [day, setDay] = useState(1);
   const [shift, setShift] = useState("Morning");
-  const [structure, setStructure] = useState(["Structure 1"]);
-  const [eligibilities, setEligibilities] = useState(["Eligibilitie 1"]);
-  const [rules, setRules] = useState(["Rule 1"]);
-  const [contacts, setContacts] = useState([
-    { name: "Name", phone: "1234567890" },
-  ]);
+  const [structure, setStructure] = useState([""]);
+  const [eligibilities, setEligibilities] = useState([""]);
+  const [rules, setRules] = useState([""]);
+  const [contacts, setContacts] = useState([{ name: "", phone: "" }]);
   const [registrationCharge, setRegistrationCharge] = useState({
     currency: "INR",
-    amount: "400",
+    amount: 400,
     isMandatory: true,
   });
+
+  const [photos, setPhotos] = useState([""]);
+  const [ruleBook, setRuleBook] = useState([""]);
+
+  console.log("Photos: ", photos);
+  console.log("RuleBook: ", ruleBook);
 
   const handleStructureChange = (index, value) => {
     const newStructure = [...structure];
     newStructure[index] = value;
-    setEligibilities(newStructure);
+    setStructure(newStructure);
   };
 
   const handleEligibilitiesChange = (index, value) => {
@@ -55,8 +60,7 @@ const Event = () => {
   };
 
   const handleRegistrationChargesChange = (field, value) => {
-    const newRegistrationCharges = registrationCharge;
-
+    const newRegistrationCharges = { ...registrationCharge };
     newRegistrationCharges[field] = value;
     setRegistrationCharge(newRegistrationCharges);
   };
@@ -69,26 +73,40 @@ const Event = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const PhotoArr = [];
+
+    photos.forEach((photo) => {
+      if (photo && photo !== "" && photo !== null) {
+        PhotoArr.push(photo);
+      }
+    });
+
+    const RuleBook = [];
+
+    ruleBook.forEach((id) => {
+      if (id && id !== "" && id !== null) {
+        RuleBook.push(id);
+      }
+    });
+
     const event = {
       eventName,
       eventType,
       description,
-      photos: [
-        "6686d2d643818a8dfee8850f",
-        "6686d2d643818a8dfee8850f",
-        "6686d2d643818a8dfee8850f",
-      ],
+      photos: PhotoArr,
       organiserName,
       location: { landmark, city, state, country },
-      structure: structure,
+      structure,
       day,
       shift,
       eligibilities,
       rules,
-      ruleBook: "6686d0e643818a8dfee8850d",
-      contact: contacts,
+      ruleBook: RuleBook[0],
+      contacts,
       registrationCharge,
     };
+
+    console.log(event);
 
     try {
       const authorization = localStorage.getItem("token");
@@ -107,9 +125,20 @@ const Event = () => {
 
   return (
     <div className="event-creation text-black">
+      <p>Event Photos:</p>
+      <FileUploadForm
+        photos={photos}
+        setPhotos={setPhotos}
+        type="EventPhotos"
+      />
+      <p>Rule Book:</p>
+      <FileUploadForm
+        photos={ruleBook}
+        setPhotos={setRuleBook}
+        type="RuleBook"
+      />
       <h2 className="text-3xl font-bold mb-5 text-center">Create Event</h2>
       <form onSubmit={handleSubmit}>
-        {/* Event Name */}
         <label>Event Name:</label>
         <input
           type="text"
@@ -117,8 +146,6 @@ const Event = () => {
           onChange={(e) => setEventName(e.target.value)}
           required
         />
-
-        {/* Event Type */}
         <label>Event Type:</label>
         <input
           type="text"
@@ -126,16 +153,12 @@ const Event = () => {
           onChange={(e) => setEventType(e.target.value)}
           required
         />
-
-        {/* Description */}
         <label>Description:</label>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
         />
-
-        {/* Organiser Name */}
         <label>Organiser Name:</label>
         <input
           type="text"
@@ -143,8 +166,6 @@ const Event = () => {
           onChange={(e) => setOrganiserName(e.target.value)}
           required
         />
-
-        {/* Location */}
         <label>Landmark:</label>
         <input
           type="text"
@@ -173,19 +194,11 @@ const Event = () => {
           onChange={(e) => setCountry(e.target.value)}
           required
         />
-
-        {/* Dates */}
         <label>Event Day:</label>
-        <select
-          id="day"
-          type="number"
-          value={day}
-          onChange={(e) => setDay(e.target.value)}
-        >
+        <select id="day" value={day} onChange={(e) => setDay(e.target.value)}>
           <option value="1">Day 1</option>
           <option value="2">Day 2</option>
         </select>
-
         <label>Event Shift:</label>
         <select
           id="shift"
@@ -195,8 +208,6 @@ const Event = () => {
           <option value="Morning">Morning</option>
           <option value="Evening">Evening</option>
         </select>
-
-        {/* Eligibilities */}
         <label>Eligibilities:</label>
         {eligibilities.map((eligibility, index) => (
           <input
@@ -210,23 +221,19 @@ const Event = () => {
         <button type="button" onClick={addEligibility}>
           Add Eligibility
         </button>
-
-        {/* Structure */}
         <label>Structure:</label>
         {structure.map((str, index) => (
           <input
             key={index}
             type="text"
             value={str}
-            onChange={(e) => handleEligibilitiesChange(index, e.target.value)}
+            onChange={(e) => handleStructureChange(index, e.target.value)}
             required
           />
         ))}
         <button type="button" onClick={addStructure}>
           Add Structure
         </button>
-
-        {/* Rules */}
         <label>Rules:</label>
         {rules.map((rule, index) => (
           <input
@@ -240,8 +247,6 @@ const Event = () => {
         <button type="button" onClick={addRule}>
           Add Rule
         </button>
-
-        {/* Contacts */}
         <label>Contacts:</label>
         {contacts.map((contact, index) => (
           <div key={index}>
@@ -268,8 +273,6 @@ const Event = () => {
         <button type="button" onClick={addContact}>
           Add Contact
         </button>
-
-        {/* Registration Charges */}
         <label>Registration Charges:</label>
         <div>
           <input
@@ -301,10 +304,53 @@ const Event = () => {
             Mandatory
           </label>
         </div>
-
         <button type="submit">Create Event</button>
       </form>
     </div>
+  );
+};
+
+const FileUploadForm = ({ photos, setPhotos, type }) => {
+  const token = localStorage.getItem("token");
+  const [files, setFiles] = useState([]);
+
+  const handleFileChange = (e) => {
+    setFiles(e.target.files);
+  };
+
+  const handleFileSubmit = async (e) => {
+    e.preventDefault();
+
+    const uploadedFiles = [];
+
+    for (const file of files) {
+      const formData = new FormData();
+      formData.append("upload", file);
+      formData.append("type", type);
+
+      try {
+        const response = await fetch(URL + "/api/file/upload", {
+          method: "POST",
+          headers: {
+            Authorization: token,
+          },
+          body: formData,
+        });
+
+        const data = await response.json();
+        uploadedFiles.push(data.fileId);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    setPhotos([...photos, ...uploadedFiles]);
+  };
+
+  return (
+    <form onSubmit={handleFileSubmit}>
+      <input type="file" id="upload" multiple onChange={handleFileChange} />
+      <button type="submit">Upload</button>
+    </form>
   );
 };
 
