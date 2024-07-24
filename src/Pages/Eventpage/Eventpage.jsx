@@ -6,20 +6,21 @@ import Navbar from "../../Components/Navbar/Navbar";
 import eventbg from "../../Assets/eventbg.jpg";
 import "./Eventpage.css";
 import Footer from "../../Components/Footer/Footer";
+import axios from "axios";
 const EventPage = () => {
-  const { id: eventId } = useParams(); // Ensure 'id' matches the parameter name in the route path
+  const { id: eventId } = useParams();
   const navigate = useNavigate();
   const { events, loading } = useContext(EventsContext);
   const [event, setEvent] = useState(null);
-
+  
   useEffect(() => {
     const fetchEvent = async () => {
-      // try {
-      //   const response = await axios.get(`${URL}/events/${eventId}`);
-      //   setEvent(response.data);
-      // } catch (error) {
-      //   console.error("Error fetching event:", error);
-      // }
+      try {
+        const response = await axios.get(`${URL}/events/${eventId}`);
+        setEvent(response.data);
+      } catch (error) {
+        console.error("Error fetching event:", error);
+      }
     };
 
     const foundEvent = events.find((evt) => evt._id === eventId);
@@ -45,7 +46,6 @@ const EventPage = () => {
         .then(() => console.log("Shared successfully"))
         .catch((error) => console.error("Error sharing:", error));
     } else {
-      // Copy the link to the clipboard
       const link = window.location.href;
       navigator.clipboard
         .writeText(link)
@@ -95,7 +95,7 @@ const EventPage = () => {
             <div className=" flex w-full ">
               <div
                 className="p-5 flex flex-col     
-           text-white font-sans tracking-wider  w-1/2   "
+           text-white font-sans tracking-wider  w-1/2    overflow-y-scroll  "
               >
                 <div className="flex flex-col justify-center items-center ">
                   <div className="  flex flex-col p-5 text-center justify-center  items-center    ">

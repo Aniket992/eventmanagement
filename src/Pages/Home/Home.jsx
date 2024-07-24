@@ -193,44 +193,44 @@ FUTURE. GET READY TO BE IGNITED WITH KNOWLEDGE AND FUN!
                 Competitions
               </h1>
               <div className="schedule text-3xl  text-green-400 border-2 flex justify-center items-center w-fit">
-  <div className=" font-avenger w-1/2 border tracking-widest h-full">
+  <div className=" font-avenger w-1/2 border tracking-widest h-full flex flex-col">
     <p className="text-3xl font-avenger text-center border p-3 text-yellow-500">day 1</p>
-    <div className="p-3 flex flex-col gap-5">
-      <div className="flex items-center">
-        <p className="text-center flex-grow">robotics olympiad</p>
+    <div className=" flex flex-col bg-gray-500 h-full ">
+      <div className="flex items-center  p-5 ">
+        <p className="text-center flex-grow  ">robotics olympiad</p>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center p-5 bg-black ">
         <p className="text-center flex-grow">water rocket challenge</p>
       </div>
      
-      <div className="flex items-center">
+      <div className="flex items-center  p-5 ">
         <p className="text-center flex-grow">tech-quiz</p>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center p-5 bg-black">
         <p className="text-center flex-grow">science-fair</p>
       </div>
-      <div className="flex ">
+      <div className="flex  p-5 ">
         <p className="text-center flex-grow">regard before you discard - best out of waste</p>
       </div>
     </div>
   </div>
   <div className=" font-avenger tracking-widest w-1/2 h-full">
     <p className="text-3xl font-avenger border text-center p-3 text-yellow-500">day 2</p>
-    <div className="p-3 flex flex-col gap-5">
-      <div className="flex items-center">
+    <div className=" flex flex-col bg-gray-500">
+      <div className="flex items-center  p-5">
         <p className="text-center flex-grow">bridge building</p>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center bg-black p-5">
         <p className="text-center flex-grow">rc-xtreme</p>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center  p-5">
         <p className="text-center flex-grow">science-a-thon</p>
       </div>
      
-      <div className="flex items-center">
+      <div className="flex items-center bg-black p-5">
         <p className="text-center flex-grow">speed X</p>
       </div>
-      <div className="flex ">
+      <div className="flex  p-5 ">
         <p className="text-center flex-grow">design-x: a curative fashion show to promote sustainability</p>
       </div>
     </div>
